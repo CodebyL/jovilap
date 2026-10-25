@@ -8,14 +8,14 @@
 <title>Sample Auto Repair | Concept Website</title>
 <meta name="description" content="Sample Auto Repair (concept website). Diagnosis first, straight prices, only the work you approve.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero-garage.jpg">
 <style>
 :root{--y:#F6E01E;--y-d:#E2CB06;--ink:#0F0F10;--ink2:#161618;--card:#1B1B1E;--line:#2A2A2E;--line2:rgba(255,255,255,.16);--txt:#F2F1EE;--mute:#9B9A97;--mute2:#6F6E6B;--paper:#F4F3EF;--wrap:1120px;--r:14px}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:auto}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{font-family:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);color:var(--txt);font-size:16px;line-height:1.6;overflow-x:clip}
+body{font-family:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);color:var(--txt);font-size:16px;line-height:1.6;overflow-x:clip}
 img{max-width:100%;display:block}a{color:inherit}
 h1,h2,h3{line-height:1.12;text-wrap:balance;font-weight:600;letter-spacing:-.015em}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
@@ -45,7 +45,7 @@ nav.main a{text-decoration:none;font-size:14.5px;color:#E8E7E3;padding:6px 0;pos
 nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--y);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 nav.main a:hover::after,nav.main a[aria-current]::after{transform:scaleX(1)}
 nav.main a[aria-current]{color:#fff}
-.menubtn{display:none;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line2);background:rgba(0,0,0,.25);color:#fff;font:600 14px 'Onest',sans-serif;cursor:pointer}
+.menubtn{display:none;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line2);background:rgba(0,0,0,.25);color:#fff;font:600 14px 'Barlow',sans-serif;cursor:pointer}
 .menubtn .bars{width:16px;height:10px;position:relative}.menubtn .bars::before,.menubtn .bars::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;transition:transform .25s,top .25s}
 .menubtn .bars::before{top:0}.menubtn .bars::after{top:8px}
 .menubtn.is-open .bars::before{top:4px;transform:rotate(45deg)}.menubtn.is-open .bars::after{top:4px;transform:rotate(-45deg)}
@@ -298,10 +298,10 @@ footer .bot a{color:var(--mute);text-decoration:none}
  .mbar.hide{transform:translateY(110%)}
 }
 </style>
-<link rel="stylesheet" href="motion.css">
+<link rel="stylesheet" href="style-motion.css">
 </head>
 <body>
-<script>window.MOTION={"key": "auto", "name": "Sample Auto Repair", "loader": "gauge", "oncePerSession": true, "hero": ".hero h1", "headings": "main h2", "spot": ".card, .rcard, .rgrid article, .stats .wrap > div, .inset", "beam": ".glass", "shine": ".pill:not(.line)", "marquee": ["Oil changes", "Brake repair", "Diagnostics", "Suspension &amp; steering", "Engine repair", "Tires", "Cooling systems", "Check engine lights"], "marqueeAfter": ".hero", "marqueeLabel": "Services", "rays": ".hero", "raysAfter": ".bg", "count": ".stats b, .rcard .badge"};</script><script src="motion.js"></script>
+<script src="style-motion.js"></script>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top" data-header>
  <div class="wrap">

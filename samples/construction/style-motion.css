@@ -1,0 +1,47 @@
+/* Construction: architectural blueprint. Heavy grotesque headings, hard edges, drawn and built motion. */
+h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",sans-serif!important;font-weight:800;letter-spacing:-.02em}
+.btn{border-radius:0!important;box-shadow:5px 5px 0 #24272B;transition:transform .15s ease,box-shadow .15s ease!important}
+.btn-dark{box-shadow:5px 5px 0 #A32326}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 #24272B}.btn-dark:hover{box-shadow:7px 7px 0 #A32326}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 #24272B}
+.banner .btn-bur,.contact .btn-bur{box-shadow:5px 5px 0 rgba(255,255,255,.85)}
+html.cn-loading .hero,html.cn-loading .hero *{animation-play-state:paused!important}
+/* loader: bricks stack, then shutter panels slide away */
+.cn-load{position:fixed;inset:0;z-index:9999;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none}
+.cn-load>b{background:#24272B;animation:cnShut .55s cubic-bezier(.7,0,.3,1) forwards;animation-delay:calc(1.5s + var(--i)*90ms)}
+.cn-mid{position:fixed;inset:0;z-index:10000;display:grid;place-content:center;justify-items:center;gap:22px;color:#fff;pointer-events:none;animation:cnFade .25s ease 1.4s forwards}
+.cn-bricks{display:grid;gap:5px;width:132px}
+.cn-bricks div{display:flex;gap:5px}.cn-bricks div:nth-child(2){margin-left:18px}
+.cn-bricks i{height:20px;flex:1;background:#A32326;opacity:0;transform:translateY(-30px);animation:cnDrop .45s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.1s + var(--i)*80ms)}
+.cn-bricks div:nth-child(2) i{background:#E7E2DA}
+.cn-title{overflow:hidden;font:800 clamp(20px,3vw,28px)/1.15 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.cn-title span{display:block;transform:translateY(105%);animation:cnRise .6s cubic-bezier(.2,.8,.2,1) .8s forwards}
+/* headline: words rise out of a mask, then a red rule is drawn */
+.cn-m{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+.cn-m>span{display:inline-block;transform:translateY(110%)}
+.cn-go .cn-m>span{animation:cnRise .75s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*70ms)}
+.cn-h1{position:relative;padding-bottom:14px}
+.cn-h1::after{content:"";position:absolute;left:0;bottom:0;height:5px;width:120px;background:#A32326;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.7,0,.3,1) .9s}
+.cn-go.cn-h1::after{transform:scaleX(1)}
+/* blueprint dimension line under section headings */
+.cn-dim{display:flex;align-items:center;gap:8px;margin-top:12px;font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#A32326;text-transform:uppercase}
+.cn-dim i{position:relative;display:block;height:1px;width:0;background:currentColor;transition:width .9s cubic-bezier(.7,0,.3,1)}
+.cn-dim i::before,.cn-dim i::after{content:"";position:absolute;top:-5px;width:1px;height:11px;background:currentColor}
+.cn-dim i::before{left:0}.cn-dim i::after{right:0}
+.cn-in .cn-dim i{width:120px}
+[style*="text-align:center"] .cn-dim,.services .cn-dim,.why .cn-dim,.reviews .cn-dim,.booking .cn-dim,.projects .cn-dim{justify-content:center}
+/* card borders draw themselves on hover */
+.cn-draw{position:relative}
+.cn-draw::after{content:"";position:absolute;inset:0;border:2px solid #A32326;pointer-events:none;clip-path:polygon(0 0,0 0,0 0,0 0);transition:clip-path .55s cubic-bezier(.7,0,.3,1);z-index:2}
+.cn-draw:hover::after{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+/* blueprint grid sweeps in */
+.hero .grid{-webkit-mask-image:linear-gradient(90deg,#000 var(--gx,0%),transparent calc(var(--gx,0%) + 12%));mask-image:linear-gradient(90deg,#000 var(--gx,0%),transparent calc(var(--gx,0%) + 12%))}
+.cn-gridgo .hero .grid{animation:cnGrid 1.6s cubic-bezier(.4,0,.2,1) forwards}
+@property --gx{syntax:'<percentage>';inherits:false;initial-value:0%}
+@keyframes cnGrid{to{--gx:100%}}
+@keyframes cnShut{to{transform:translateY(-100%)}}
+@keyframes cnFade{to{opacity:0;visibility:hidden}}
+@keyframes cnDrop{to{opacity:1;transform:none}}
+@keyframes cnRise{to{transform:none}}
+@media (prefers-reduced-motion:reduce){.cn-load,.cn-mid{display:none}.cn-m>span{transform:none;animation:none!important}.cn-h1::after{transform:scaleX(1);transition:none}.cn-dim i{width:120px;transition:none}.hero .grid{-webkit-mask-image:none;mask-image:none}}
+.mbar a{border-radius:0!important}

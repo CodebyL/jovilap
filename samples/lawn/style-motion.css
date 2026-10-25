@@ -1,0 +1,37 @@
+/* Lawn & landscape: organic. Soft serif headings, rounded forms, growing and drifting motion. */
+h1,h2,h3,.logo b,.pc h3{font-family:"Fraunces",Georgia,serif!important;font-weight:650;letter-spacing:-.015em}
+.hero h1{font-style:italic;font-weight:600}
+.pill{border-radius:999px 999px 999px 18px!important}
+html.lw-loading .hero,html.lw-loading .hero *{animation-play-state:paused!important}
+/* loader: stripes grow, then the screen closes like a sun iris */
+.lw-load{position:fixed;inset:0;z-index:9999;background:#072314;color:#E6F4EA;display:grid;place-content:center;justify-items:center;gap:20px;clip-path:circle(150% at 50% 50%);animation:lwIris .8s cubic-bezier(.7,0,.3,1) 1.5s forwards}
+.lw-sun{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#E4B43C 0 34%,transparent 35%);position:relative;animation:lwSpin 6s linear infinite}
+.lw-sun i{position:absolute;left:50%;top:50%;width:4px;height:14px;margin:-7px 0 0 -2px;background:#E4B43C;border-radius:2px;transform:rotate(calc(var(--i)*45deg)) translateY(-34px) scaleY(0);animation:lwRay .4s ease forwards;animation-delay:calc(.1s + var(--i)*70ms)}
+.lw-word{font:italic 600 clamp(22px,3.4vw,32px)/1.1 "Fraunces",Georgia,serif;display:flex;gap:.28em}
+.lw-word span{opacity:0;transform:translateY(8px);animation:lwSoft .7s ease forwards;animation-delay:calc(.55s + var(--i)*160ms)}
+/* headline sprouts like grass */
+.lw-sp{display:inline-block;transform-origin:50% 100%;transform:scaleY(0) translateY(30%);opacity:0}
+.lw-go .lw-sp{animation:lwSprout .9s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:calc(var(--i)*90ms)}
+/* section headings settle like leaves */
+.lw-lf{display:inline-block;opacity:0;transform:translate(-8px,-14px) rotate(-6deg)}
+.lw-in .lw-lf{animation:lwSettle .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i)*60ms)}
+/* cards bloom instead of sliding */
+.anim [data-rv]{transform:scale(.93)!important;transition:opacity .9s ease,transform 1s cubic-bezier(.34,1.56,.64,1)!important}
+.anim [data-rv].in{transform:none!important}
+.sc,.pc,.hcard,.gal figure{transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .5s ease}
+.sc:hover,.gal figure:hover,.pc:not(.mid):hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 22px 40px -18px rgba(17,113,62,.45)}
+/* ripple buttons */
+.lw-rip-host{position:relative;overflow:hidden;isolation:isolate}
+.lw-rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);pointer-events:none;animation:lwRipple .7s ease-out forwards;z-index:-1}
+/* drifting leaves */
+.hero{position:relative}.hero>.wrap,.pagehead>.wrap{position:relative;z-index:1}.pagehead{position:relative;overflow:hidden}
+.lw-leaves{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+@keyframes lwIris{to{clip-path:circle(0% at 50% 50%);visibility:hidden}}
+@keyframes lwSpin{to{rotate:360deg}}
+@keyframes lwRay{to{transform:rotate(calc(var(--i)*45deg)) translateY(-34px) scaleY(1)}}
+@keyframes lwSoft{to{opacity:1;transform:none}}
+@keyframes lwSprout{to{transform:none;opacity:1}}
+@keyframes lwSettle{to{opacity:1;transform:none}}
+@keyframes lwRipple{to{transform:scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){.lw-load,.lw-leaves{display:none}.lw-sp,.lw-lf{transform:none;opacity:1;animation:none!important}}
+@media (max-width:640px){.mbar{left:12px!important;right:12px!important;bottom:calc(10px + env(safe-area-inset-bottom,0px))!important;border-radius:999px;padding:6px!important;box-shadow:0 14px 30px -10px rgba(7,35,20,.6)}}
