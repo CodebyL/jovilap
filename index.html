@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>JOVILAP | Websites for Contractors</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="JOVILAP builds clear, mobile-friendly websites for contractors in Palm Beach and Miami-Dade counties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: navy-and-paper corporate site; serif display from the logo, stacked-bar motif as section markers, phone mockup in hero */
+:root{
+  --bg:#F6F8FB; --surface:#FFFFFF; --ink:#1B2A41; --muted:#4D5B70; --line:#D9E0EA;
+  --navy:#0A3D7A; --blue:#2F74C0; --sky:#8DB8E8; --band:#1B2A41; --band-ink:#F2F5F9; --band-muted:#B4C3D6;
+  --focus:#2F74C0; --ok:#1F6B45; --err:#B3261E; --note-bg:#EAF2FB;
+  --display:'Libre Caslon Text',Georgia,'Times New Roman',serif;
+  --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1622; --surface:#152132; --ink:#E7EDF5; --muted:#A9B7CA; --line:#2A3A52;
+  --navy:#8DB8E8; --blue:#6FA6E0; --sky:#2F74C0; --band:#0A1220; --band-ink:#E7EDF5; --band-muted:#9FB1C8;
+  --focus:#8DB8E8; --ok:#7FD1A5; --err:#FF9C94; --note-bg:#1B2C44; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1622; --surface:#152132; --ink:#E7EDF5; --muted:#A9B7CA; --line:#2A3A52;
+  --navy:#8DB8E8; --blue:#6FA6E0; --sky:#2F74C0; --band:#0A1220; --band-ink:#E7EDF5; --band-muted:#9FB1C8;
+  --focus:#8DB8E8; --ok:#7FD1A5; --err:#FF9C94; --note-bg:#1B2C44; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,4.6vw,3.25rem)}
+h2{font-size:clamp(1.6rem,3vw,2.25rem)}
+h3{font-size:1.2rem}
+p{margin:0}
+.label{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:60ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 1rem var(--body);padding:14px 22px;border-radius:6px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-primary:hover{background:var(--blue);color:#fff}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--ink)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.logo svg{height:30px;width:auto;flex:none}
+.logo span{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.18em}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
+.nav ul a:hover{color:var(--blue)}
+.nav .btn{padding:10px 16px;font-size:.92rem}
+@media (max-width:900px){.nav ul{display:none}}
+@media (max-width:480px){.nav .btn{display:none}}
+section{padding-block:clamp(56px,8vw,96px)}
+.sec-head{display:grid;gap:14px;margin-bottom:40px;max-width:720px}
+.bars{display:grid;gap:4px;width:42px}
+.bars i{display:block;height:6px;border-radius:1px}
+.bars i:nth-child(1){background:var(--navy);width:34px}
+.bars i:nth-child(2){background:var(--blue);width:34px;margin-left:8px}
+.bars i:nth-child(3){background:var(--sky);width:34px}
+.hero{padding-block:clamp(40px,7vw,88px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.92rem;color:var(--muted)}
+.hero-meta b{color:var(--ink);font-weight:600}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.phone{justify-self:center;width:290px;max-width:100%;background:var(--ink);border-radius:36px;padding:12px;}
+.screen{background:#FFFFFF;color:#1B2A41;border-radius:26px;overflow:hidden;font-family:var(--body)}
+.scr-top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #E3E8EF}
+.scr-top b{font-size:.82rem;letter-spacing:.06em}
+.scr-top small{font-family:var(--mono);font-size:.62rem;background:#EAF2FB;color:#0A3D7A;padding:3px 6px;border-radius:4px}
+.scr-hero{background:#0A3D7A;color:#fff;padding:20px 16px;display:grid;gap:8px}
+.scr-hero strong{font-family:var(--display);font-size:1.15rem;line-height:1.25}
+.scr-hero span{font-size:.75rem;opacity:.85}
+.scr-btns{display:grid;gap:8px;padding:14px 16px}
+.scr-btn{border-radius:6px;padding:11px;text-align:center;font-size:.8rem;font-weight:700}
+.scr-btn.call{background:#2F74C0;color:#fff}
+.scr-btn.quote{border:2px solid #1B2A41}
+.scr-list{padding:0 16px 14px;display:grid;gap:7px;font-size:.74rem}
+.scr-list div{display:flex;justify-content:space-between;border-bottom:1px dashed #D9E0EA;padding-bottom:6px}
+.scr-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:0 16px 18px}
+.scr-gallery i{aspect-ratio:1;border-radius:3px;background:#8DB8E8}
+.scr-gallery i:nth-child(2){background:#2F74C0}.scr-gallery i:nth-child(3){background:#C9D9EC}
+.phone-cap{text-align:center;font-size:.8rem;color:var(--muted);margin-top:12px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.feat{background:var(--surface);padding:26px;display:grid;gap:8px;align-content:start}
+.feat p{color:var(--muted);font-size:.97rem}
+@media (max-width:860px){.features{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.features{grid-template-columns:1fr}}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--line);border-radius:8px;padding:28px;display:grid;grid-template-rows:auto auto auto 1fr auto;gap:14px;background:var(--bg)}
+.plan.main{border:2px solid var(--ink)}
+.price{font-family:var(--display);font-size:2.4rem;font-weight:700;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:.95rem;font-weight:500;color:var(--muted)}
+.plan ul{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--muted);font-size:.96rem}
+.plan .fine{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.note{background:var(--note-bg);border-radius:8px;padding:18px 20px;margin-top:22px;display:grid;gap:6px;font-size:.96rem}
+.note b{font-weight:600}
+.concepts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.concepts{grid-template-columns:1fr}}
+.concept{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);display:grid;grid-template-rows:auto 1fr}
+.mock{aspect-ratio:16/10;max-width:100%;padding:14px;display:grid;grid-template-rows:auto 1fr auto;gap:10px;color:#fff}
+.mock .bar{display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;letter-spacing:.08em;opacity:.95}
+.mock .big{font-family:var(--display);font-size:1.1rem;line-height:1.25;align-self:center;max-width:80%}
+.mock .row{display:flex;gap:6px}
+.mock .row i{height:22px;flex:1;border-radius:3px;background:rgba(255,255,255,.22)}
+.mock .row i:first-child{background:#fff}
+.m1{background:#0A3D7A}.m2{background:#1F4D5C}.m3{background:#2B2F36}.m4{background:#11713E}.m5{background:#A32326}
+.concept-body .view{font-weight:600;font-size:.95rem;text-decoration:none;margin-top:4px}
+.concept-body .view:hover{text-decoration:underline}
+.shot{position:relative;border-bottom:1px solid var(--line);background:var(--bg)}
+.shot .chrome{display:flex;align-items:center;gap:6px;height:26px;padding:0 12px;background:var(--line)}
+.shot .chrome i{width:8px;height:8px;border-radius:50%;background:var(--surface)}
+.shot .frame{aspect-ratio:16/10;max-width:100%;overflow:hidden}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1);transition:filter .5s ease,transform .7s ease}
+.concept:hover .shot img,.concept:focus-within .shot img{filter:grayscale(0);transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.shot img{transition:none}.concept:hover .shot img,.concept:focus-within .shot img{transform:none}}
+.concept-body{padding:20px;display:grid;gap:8px;align-content:start}
+.tag{justify-self:start;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);color:var(--muted);padding:3px 8px;border-radius:4px}
+.concept-body p{color:var(--muted);font-size:.95rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px;counter-reset:s}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;display:grid;gap:6px;border-top:2px solid var(--ink);padding-top:16px}
+.steps li::before{content:"Step " counter(s);font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.steps p{color:var(--muted);font-size:.96rem}
+.band{background:var(--band);color:var(--band-ink)}
+.band .label{color:var(--sky)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+.about p{color:var(--band-muted)}
+.about .facts{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.18)}
+.about .facts div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:.97rem}
+.about .facts span{color:var(--band-muted)}
+.faq{display:grid;gap:12px;max-width:820px}
+details{border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+summary{cursor:pointer;padding:18px 22px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--blue)}
+details[open] summary::after{content:"–"}
+details p{padding:0 22px 20px;color:var(--muted)}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+.contact-info{display:grid;gap:18px;min-width:0}
+.info-row{display:grid;gap:2px}
+.info-row span{font-size:.85rem;color:var(--muted)}
+.info-row b{font-weight:600;word-break:break-word}
+form{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:28px;display:grid;gap:18px;min-width:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+label{font-weight:600;font-size:.93rem}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:12px 14px;width:100%}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--focus);outline-offset:1px;border-color:var(--focus)}
+textarea{min-height:110px;resize:vertical}
+.err{color:var(--err);font-size:.85rem;min-height:0}
+.field.bad input,.field.bad select{border-color:var(--err)}
+.hp{position:absolute;left:-9999px}
+.form-msg{border-radius:6px;padding:14px 16px;font-size:.95rem}
+.form-msg.ok{background:var(--note-bg);color:var(--ink)}
+footer{border-top:1px solid var(--line);padding-block:36px;font-size:.9rem;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.loader{position:fixed;inset:0;z-index:100;background:var(--band);display:grid;place-content:center;justify-items:center;gap:20px;animation:ldOut .6s cubic-bezier(.7,0,.3,1) 1.45s forwards}
+.ld-mark{display:grid;gap:7px;width:96px}
+.ld-mark i{display:block;height:18px;width:76px;border-radius:2px;transform:scaleX(0);transform-origin:left;animation:ldBar .45s cubic-bezier(.2,.8,.2,1) forwards}
+.ld-mark i:nth-child(1){background:#FFFFFF;animation-delay:.1s}
+.ld-mark i:nth-child(2){background:#7FA7CC;margin-left:20px;animation-delay:.25s}
+.ld-mark i:nth-child(3){background:#2F74C0;animation-delay:.4s}
+.ld-word{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--band-ink);letter-spacing:.6em;padding-left:.6em;opacity:0;animation:ldWord .6s ease .7s forwards}
+.ld-line{width:140px;height:2px;background:rgba(255,255,255,.15);overflow:hidden}
+.ld-line::after{content:"";display:block;height:100%;background:#8DB8E8;transform:scaleX(0);transform-origin:left;animation:ldBar 1.2s cubic-bezier(.4,0,.2,1) .15s forwards}
+@keyframes ldBar{to{transform:scaleX(1)}}
+@keyframes ldWord{to{opacity:1;letter-spacing:.32em;padding-left:.32em}}
+@keyframes ldOut{to{transform:translateY(-100%);visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.loader{display:none}}
+
+/* Motion layer: dark hero with light beams, blur-in headline, live inbox feed, trades marquee, border beam, cursor spotlight, blur-up reveals */
+@property --beam{syntax:'<angle>';inherits:false;initial-value:0deg}
+.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--band);color:var(--band-ink)}
+.hero .label{color:var(--sky)}
+.hero .lead{color:var(--band-muted)}
+.hero .hero-meta{color:var(--band-muted)}.hero .hero-meta b{color:var(--band-ink)}
+.hero .btn-primary{background:#FFFFFF;color:#1B2A41}.hero .btn-primary:hover{background:#8DB8E8;color:#0A1220}
+.hero .btn-ghost{color:var(--band-ink);border-color:rgba(255,255,255,.28)}.hero .btn-ghost:hover{border-color:#fff}
+.hero .phone{background:#0A1220;box-shadow:0 0 0 1px rgba(141,184,232,.25),0 40px 80px -20px rgba(47,116,192,.55)}
+.hero .phone-cap{color:var(--band-muted)}
+.pill-tag{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#DCE8F6;padding:6px 12px 6px 8px;border-radius:999px;border:1px solid rgba(141,184,232,.35);background:rgba(141,184,232,.08)}
+.pill-tag .dot{width:8px;height:8px;border-radius:50%;background:#8DB8E8;box-shadow:0 0 0 0 rgba(141,184,232,.7);animation:ping 2.4s ease-out infinite}
+.rays{position:absolute;inset:-20% 0 auto 0;height:120%;z-index:-1;pointer-events:none}
+.rays i{position:absolute;top:-10%;width:22%;height:110%;background:linear-gradient(180deg,rgba(141,184,232,.32),rgba(47,116,192,.08) 55%,transparent 80%);filter:blur(28px);transform-origin:top center;opacity:.8;animation:sway 9s ease-in-out infinite alternate}
+.rays i:nth-child(1){left:34%;transform:skewX(-18deg);animation-delay:-2s}
+.rays i:nth-child(2){left:52%;width:16%;transform:skewX(-8deg);opacity:.6;animation-duration:11s}
+.rays i:nth-child(3){left:66%;width:12%;transform:skewX(4deg);opacity:.45;animation-duration:13s;animation-delay:-5s}
+.floor{position:absolute;left:50%;bottom:-140px;width:1100px;max-width:160%;height:280px;transform:translateX(-50%);z-index:-1;background:radial-gradient(closest-side,rgba(47,116,192,.45),transparent);filter:blur(10px);pointer-events:none}
+.gridlines{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 75%)}
+.hero h1 .w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(10px);animation:blurIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(1.5s + var(--i) * 55ms)}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#FFFFFF,#8DB8E8 40%,#FFFFFF 60%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:blurIn .8s cubic-bezier(.2,.7,.2,1) forwards,shine 6s linear 3s infinite}
+.hero .fade-in{opacity:0;animation:blurIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(1.5s + var(--d,0s))}
+.hero .phone{animation:float 7s ease-in-out infinite}
+.marquee{background:var(--band);border-top:1px solid rgba(255,255,255,.08);color:var(--band-muted);overflow:hidden;padding-block:18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee .track{display:flex;width:max-content;gap:48px;animation:marq 38s linear infinite}
+.marquee span{font-family:var(--display);font-size:1.15rem;white-space:nowrap;display:inline-flex;align-items:center;gap:48px}
+.marquee span::after{content:"";width:6px;height:6px;border-radius:1px;background:#2F74C0}
+.marquee:hover .track{animation-play-state:paused}
+.feed-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;margin-top:48px}
+@media (max-width:860px){.feed-wrap{grid-template-columns:1fr}}
+.feed-copy{display:grid;gap:12px;min-width:0}
+.feed-copy p{color:var(--muted)}
+.inbox{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--bg);overflow:hidden;min-width:0}
+.inbox-top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.inbox-top .live{display:inline-flex;align-items:center;gap:8px;color:var(--ok)}
+.inbox-top .live i{width:7px;height:7px;border-radius:50%;background:currentColor;animation:ping 2s ease-out infinite;box-shadow:0 0 0 0 currentColor}
+.inbox ul{list-style:none;margin:0;padding:8px;display:grid;gap:8px;height:308px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent);mask-image:linear-gradient(180deg,#000 75%,transparent)}
+.inbox li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);animation:dropIn .6s cubic-bezier(.2,.7,.2,1) both}
+.inbox li .ic{width:34px;height:34px;border-radius:8px;background:var(--note-bg);display:grid;place-items:center;font-family:var(--mono);font-size:.7rem;color:var(--blue);font-weight:500}
+.inbox li b{display:block;font-size:.95rem;font-weight:600}
+.inbox li small{display:block;color:var(--muted);font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.inbox li div{min-width:0}
+.inbox li time{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.inbox-cap{font-size:.82rem;color:var(--muted);padding:10px 16px;border-top:1px solid var(--line)}
+.plan.main{position:relative;border:2px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,conic-gradient(from var(--beam),var(--line) 0deg,var(--line) 250deg,#8DB8E8 300deg,#2F74C0 330deg,var(--line) 360deg) border-box;animation:beam 5s linear infinite}
+.spot{position:relative}
+.spot::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(47,116,192,.14),transparent 60%);z-index:1}
+.spot:hover::before{opacity:1}
+.rv{opacity:0;filter:blur(8px);transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),filter .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rd,0s)}
+.rv.in{opacity:1;filter:none;transform:none}
+@keyframes blurIn{to{opacity:1;filter:blur(0);transform:none}}
+@keyframes shine{to{background-position:-200% 0}}
+@keyframes sway{from{translate:-3% 0;opacity:.45}to{translate:4% 0;opacity:.9}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(141,184,232,.6)}80%,100%{box-shadow:0 0 0 10px rgba(141,184,232,0)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes dropIn{from{opacity:0;filter:blur(6px);transform:translateY(-14px)}to{opacity:1;filter:none;transform:none}}
+@keyframes beam{to{--beam:360deg}}
+@media (prefers-reduced-motion:reduce){
+  .hero h1 .w,.hero h1 em,.hero .fade-in{animation:none;opacity:1;filter:none;transform:none}
+  .rays i,.hero .phone,.marquee .track,.plan.main,.pill-tag .dot,.inbox-top .live i,.inbox li{animation:none}
+  .rv{opacity:1;filter:none;transform:none;transition:none}
+}
+.sticky-cta{display:none}
+@media (max-width:480px){
+  .sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .sticky-cta .btn{width:100%}
+  footer{padding-bottom:96px}
+}
+</style>
+</head>
+<body>
+
+
+<div class="loader" id="loader" aria-hidden="true"><div class="ld-mark"><i></i><i></i><i></i></div><div class="ld-word">JOVILAP</div><div class="ld-line"></div></div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="JOVILAP home">
+      <svg viewBox="0 0 80 64" aria-hidden="true"><rect x="0" y="2" width="62" height="16" rx="2" fill="#0A3D7A"/><rect x="14" y="24" width="62" height="16" rx="2" fill="#2F74C0"/><rect x="0" y="46" width="62" height="16" rx="2" fill="#8DB8E8"/></svg>
+      <span>JOVILAP</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#included">What's included</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#work">Concept work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Request a free review</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="gridlines" aria-hidden="true"></div>
+    <div class="rays" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="floor" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="pill-tag fade-in" style="--d:0s"><span class="dot" aria-hidden="true"></span>Websites for contractors</span>
+        <h1><span class="w" style="--i:0">A</span> <span class="w" style="--i:1">website</span> <span class="w" style="--i:2">that</span> <span class="w" style="--i:3">helps</span> <span class="w" style="--i:4">customers</span> <span class="w" style="--i:5">call</span> <span class="w" style="--i:6">you,</span> <span class="w" style="--i:7">see</span> <span class="w" style="--i:8">your</span> <span class="w" style="--i:9">work,</span> <span class="w" style="--i:10">and</span> <em class="w" style="--i:11">ask for a quote.</em></h1>
+        <p class="lead fade-in" style="--d:.55s">JOVILAP builds clear, mobile-friendly websites for roofers, plumbers, HVAC, electricians, landscapers, and other trades. The founder works in construction, so your website is planned by someone who knows how your customers hire.</p>
+        <div class="hero-ctas fade-in" style="--d:.7s">
+          <a class="btn btn-primary" href="#contact">Request a free website review</a>
+          <a class="btn btn-ghost" href="#pricing">See pricing</a>
+        </div>
+        <div class="hero-meta fade-in" style="--d:.85s">
+          <span><b>Serving</b> Palm Beach and Miami-Dade counties</span>
+          <span><b>Websites from</b> $750</span>
+        </div>
+      </div>
+      <div class="fade-in" style="--d:.4s">
+        <div class="phone" role="img" aria-label="Example of a contractor website on a phone, showing a call button, a request a quote button, services and a photo gallery">
+          <div class="screen">
+            <div class="scr-top"><b>SAMPLE ROOFING CO.</b><small>Concept</small></div>
+            <div class="scr-hero"><strong>Roof repair and replacement</strong><span>Licensed and insured · Free estimates</span></div>
+            <div class="scr-btns"><div class="scr-btn call">Tap to call</div><div class="scr-btn quote">Request a quote</div></div>
+            <div class="scr-list"><div><span>Roof repair</span><span>›</span></div><div><span>Full replacement</span><span>›</span></div><div><span>Storm damage</span><span>›</span></div></div>
+            <div class="scr-gallery"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <p class="phone-cap">Concept example, not a real business.</p>
+      </div>
+    </div>
+  </section>
+  <div class="marquee" aria-label="Trades JOVILAP builds websites for"><div class="track"><div style="display:flex;gap:48px"><span>Roofing</span><span>HVAC</span><span>Plumbing</span><span>Electrical</span><span>Landscaping</span><span>Pool service</span><span>Remodeling</span><span>Concrete &amp; pavers</span><span>Painting</span><span>Auto repair</span></div><div style="display:flex;gap:48px" aria-hidden="true"><span>Roofing</span><span>HVAC</span><span>Plumbing</span><span>Electrical</span><span>Landscaping</span><span>Pool service</span><span>Remodeling</span><span>Concrete &amp; pavers</span><span>Painting</span><span>Auto repair</span></div></div></div>
+
+  <section id="included" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="label">What's included</div>
+        <h2>Built around how people hire a contractor</h2>
+        <p class="lead">Most customers find you on their phone, check that you look legitimate, and want a fast way to reach you. Every JOVILAP website is set up for that.</p>
+      </div>
+      <div class="features">
+        <div class="feat spot"><h3>Tap-to-call button</h3><p>Your phone number is one tap away on every page, so customers can call from the job site or their driveway.</p></div>
+        <div class="feat spot"><h3>Quote request form</h3><p>Customers send their name, contact details, and what they need. The request goes to your email.</p></div>
+        <div class="feat spot"><h3>Project photo gallery</h3><p>Show real jobs you've finished. Photos of your own work build more trust than stock images.</p></div>
+        <div class="feat spot"><h3>Services and service area</h3><p>A clear list of what you do and the towns you cover, so customers know right away if you're a fit.</p></div>
+        <div class="feat spot"><h3>License and insurance details</h3><p>Show your license number and insurance status where customers can see them before they call.</p></div>
+        <div class="feat spot"><h3>Works on any phone</h3><p>Designed for small screens first, then checked on tablets and computers before launch.</p></div>
+      </div>
+      <div class="feed-wrap">
+        <div class="feed-copy">
+          <div class="label">Quote requests</div>
+          <h3 style="font-size:1.6rem">Requests land in your inbox, ready to call back</h3>
+          <p>Every quote request form sends the customer's name, phone, town, and what they need straight to your email, so you can call back while they're still looking.</p>
+        </div>
+        <div class="inbox" aria-label="Example of quote requests arriving">
+          <div class="inbox-top"><span>Your inbox</span><span class="live"><i aria-hidden="true"></i>Example</span></div>
+          <ul id="feed" aria-live="off"></ul>
+          <div class="inbox-cap">Example requests for illustration. Names and details are made up.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="label">Pricing</div>
+        <h2>Clear prices, agreed before any work starts</h2>
+        <p class="lead">You get a written price and scope after your free website review. Payment is half to start and half before your site goes live, or in 3 payments.</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <h3>Landing page</h3>
+          <div class="price">$750 <small>one time</small></div>
+          <p>For new or small businesses that need a professional page fast.</p>
+          <ul><li>1 long page with all your key information</li><li>Tap-to-call and quote request form</li><li>Photo section for your work</li><li>1 round of changes before launch</li></ul>
+          <p class="fine">Can be upgraded to a full website later.</p>
+        </article>
+        <article class="plan main">
+          <h3>Contractor website</h3>
+          <div class="price">$1,500 <small>one time</small></div>
+          <p>For established contractors who want a complete website.</p>
+          <ul><li>Up to 5 pages: Home, Services, Projects, About, Contact</li><li>Full project photo gallery</li><li>Quote request form and tap-to-call</li><li>2 rounds of changes before launch</li></ul>
+          <p class="fine">Monthly option: $250 down, then $209/month for 12 months, care plan included.</p>
+        </article>
+        <article class="plan">
+          <h3>Care plan</h3>
+          <div class="price">$99 <small>per month</small></div>
+          <p>Keeps your website online, secure, and up to date.</p>
+          <ul><li>Hosting and security certificate</li><li>Backups and uptime checks</li><li>Up to 30 minutes of small changes each month</li><li>Extra changes at $65 per hour</li></ul>
+          <p class="fine">6-month minimum, then month to month.</p>
+        </article>
+      </div>
+      <div class="note">
+        <b>Founding client rate</b>
+        <p>JOVILAP's first 3 clients get the full contractor website for $1,000. In return, they agree to let JOVILAP show their website as an example and to be asked for an honest review.</p>
+      </div>
+      <div class="note">
+        <b>What you'll need to provide</b>
+        <p>Your logo (if you have one), photos of your work, your list of services, your license number, and short answers to a questionnaire. Your domain name (your web address) is registered in your name, usually about $10–20 per year.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="label">Concept work</div>
+        <h2>Sample websites</h2>
+        <p class="lead">JOVILAP is a new company, so these are concept projects for fictional businesses. One shows what the landing page package includes and two show the contractor website package. Photos are free stock images, and no client results are claimed.</p>
+      </div>
+      <div class="concepts">
+        <article class="concept spot">
+          <div class="shot"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame"><img src="shots/auto.jpg" alt="Homepage of the Sample Auto Repair landing page example" loading="lazy" width="1280" height="800"></div></div>
+          <div class="concept-body"><span class="tag">Landing page example</span><h3>Auto repair shop</h3><p>One long page: services, shop hours that highlight today, a reviews section, and a book-a-visit form.</p><a class="view" href="samples/auto/" target="_blank" rel="noopener">View sample website →</a></div>
+        </article>
+        <article class="concept spot">
+          <div class="shot"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame"><img src="shots/lawn.jpg" alt="Homepage of the Sample Lawn and Landscape contractor website example" loading="lazy" width="1280" height="800"></div></div>
+          <div class="concept-body"><span class="tag">Contractor website example</span><h3>Lawn and landscaping company</h3><p>5 pages: Home, Services with a season-by-season guide, Projects gallery, About, and Contact with a request-a-visit form.</p><a class="view" href="samples/lawn/" target="_blank" rel="noopener">View sample website →</a></div>
+        </article>
+        <article class="concept spot">
+          <div class="shot"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame"><img src="shots/construction.jpg" alt="Homepage of the Sample Construction Co. contractor website example" loading="lazy" width="1280" height="800"></div></div>
+          <div class="concept-body"><span class="tag">Contractor website example</span><h3>Patio, concrete and remodeling contractor</h3><p>5 pages: Home with a quick estimate form, Services, Projects, About with a service area map and FAQ, and Contact.</p><a class="view" href="samples/construction/" target="_blank" rel="noopener">View sample website →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="label">Process</div>
+        <h2>How a project works</h2>
+        <p class="lead">Six steps from first conversation to launch. You always know what's next and what you owe.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Free website review</h3><p>A 20–30 minute conversation about your business and your current website or Google listing.</p></li>
+        <li><h3>Price and agreement</h3><p>You receive a written price and scope. Nothing starts until you sign.</p></li>
+        <li><h3>Deposit and your materials</h3><p>Your first payment starts the project. You send photos, services, and questionnaire answers.</p></li>
+        <li><h3>Design and build</h3><p>Your website is designed and built. You review it and request changes.</p></li>
+        <li><h3>Final payment and launch</h3><p>Once you approve the site and make the final payment, it goes live.</p></li>
+        <li><h3>Care plan</h3><p>Optional monthly care keeps your site online and handles small updates.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" id="about">
+    <div class="wrap about">
+      <div style="display:grid;gap:16px">
+        <div class="label">About JOVILAP</div>
+        <h2>A website company with roots in construction</h2>
+        <p>JOVILAP was founded by [Founder name], who works in construction. He knows how contractors win jobs and what customers look for before they call. When you contact JOVILAP, you deal with him directly from the first conversation to launch.</p>
+      </div>
+      <div class="facts">
+        <div><span>Founder &amp; Owner</span><b>[Founder name]</b></div>
+        <div><span>Based in</span><b>Lake Worth Beach and Miami, FL</b></div>
+        <div><span>Serves</span><b>Contractors and trade businesses</b></div>
+        <div><span>Language</span><b>English</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="label">Questions</div>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Is the website review really free?</summary><p>Yes. It's a 20–30 minute conversation with no obligation. You'll get a written price afterward if you want to move forward.</p></details>
+        <details><summary>Do I own my website?</summary><p>Yes. Once you've paid in full, the website and its content are yours. Your domain name is registered in your own name from the start.</p></details>
+        <details><summary>How long does it take?</summary><p>It depends mostly on how quickly your photos and information arrive. You'll get an estimated launch date once JOVILAP has your materials.</p></details>
+        <details><summary>Do I have to sign up for the care plan?</summary><p>No, it's optional. Without it, you'll need to arrange your own hosting and updates. With it, hosting, backups, and small changes are handled for you.</p></details>
+        <details><summary>What if I stop the care plan?</summary><p>After the 6-month minimum you can stop any month. You keep your domain and content, and JOVILAP will help move your website to your own hosting.</p></details>
+        <details><summary>Will my website get me more customers or rank first on Google?</summary><p>No one can honestly guarantee that. A clear website makes it easier for customers who find you to trust you and contact you. Search ranking depends on many things outside the website.</p></details>
+        <details><summary>Do you write the text for my website?</summary><p>You answer a short questionnaire and JOVILAP turns your answers into clear website text. Writing everything from scratch without your input is not included.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt">
+    <div class="wrap contact">
+      <div class="contact-info">
+        <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="label">Free website review</div>
+        <h2>Tell JOVILAP about your business</h2>
+        <p class="lead">Send a few details and [Founder name] will follow up to set up your free 20–30 minute website review.</p>
+        <div class="info-row"><span>Email</span><b>[Business email]</b></div>
+        <div class="info-row"><span>Phone</span><b>[Business phone]</b></div>
+        <div class="info-row"><span>Service area</span><b>Palm Beach and Miami-Dade counties, Florida</b></div>
+      </div>
+      <form id="review-form" novalidate>
+        <div class="two">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required><span class="err" id="e-name"></span></div>
+          <div class="field"><label for="f-biz">Business name</label><input id="f-biz" name="business" autocomplete="organization" required><span class="err" id="e-biz"></span></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err" id="e-email"></span></div>
+          <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-trade">Your trade</label>
+            <select id="f-trade" name="trade" required><option value="">Choose one</option><option>Roofing</option><option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>General contractor / remodeling</option><option>Landscaping</option><option>Pool service</option><option>Other</option></select><span class="err" id="e-trade"></span></div>
+          <div class="field"><label for="f-need">What you need</label>
+            <select id="f-need" name="need" required><option value="">Choose one</option><option>My first website</option><option>A new version of my current website</option><option>A one-page landing page</option><option>Not sure yet</option></select><span class="err" id="e-need"></span></div>
+        </div>
+        <div class="field"><label for="f-site">Current website <span class="opt">(optional)</span></label><input id="f-site" name="website" inputmode="url" placeholder="yourcompany.com"></div>
+        <div class="field"><label for="f-msg">Anything else? <span class="opt">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-hp">Leave this empty</label><input id="f-hp" name="company_site" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-primary" type="submit">Request my free review</button>
+        <div id="form-msg" class="form-msg ok" role="status" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top" aria-label="JOVILAP home">
+      <svg viewBox="0 0 80 64" aria-hidden="true" style="height:22px"><rect x="0" y="2" width="62" height="16" rx="2" fill="#0A3D7A"/><rect x="14" y="24" width="62" height="16" rx="2" fill="#2F74C0"/><rect x="0" y="46" width="62" height="16" rx="2" fill="#8DB8E8"/></svg>
+      <span style="font-size:1rem">JOVILAP</span>
+    </a>
+    <span>Websites for contractors · Palm Beach and Miami-Dade counties, Florida</span>
+    <span>© 2026 JOVILAP</span>
+  </div>
+</footer>
+
+<div class="sticky-cta"><a class="btn btn-primary" href="#contact">Request a free website review</a></div>
+
+<script>
+(function(){var l=document.getElementById('loader');if(!l)return;l.addEventListener('animationend',function(e){if(e.animationName==='ldOut')l.remove()});setTimeout(function(){if(l.isConnected)l.remove()},3000)})();
+(function(){
+  var form=document.getElementById('review-form'),msg=document.getElementById('form-msg');
+  var rules=[['f-name','e-name','Enter your name.'],['f-biz','e-biz','Enter your business name.'],['f-email','e-email','Enter an email address like name@company.com.'],['f-trade','e-trade','Choose your trade.'],['f-need','e-need','Choose what you need.']];
+  function check(id,eid,text){var el=document.getElementById(id),e=document.getElementById(eid),v=el.value.trim(),ok=v!=='';if(ok&&el.type==='email')ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);e.textContent=ok?'':text;el.parentNode.classList.toggle('bad',!ok);el.setAttribute('aria-invalid',ok?'false':'true');return ok;}
+  rules.forEach(function(r){var el=document.getElementById(r[0]);el.addEventListener('input',function(){if(el.getAttribute('aria-invalid')==='true')check(r[0],r[1],r[2]);});el.addEventListener('change',function(){if(el.getAttribute('aria-invalid')==='true')check(r[0],r[1],r[2]);});});
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var first=null;rules.forEach(function(r){if(!check(r[0],r[1],r[2])&&!first)first=r[0];});
+    if(first){document.getElementById(first).focus();msg.hidden=true;return;}
+    if(document.getElementById('f-hp').value){return;}
+    msg.textContent='Preview only: this form is not connected yet, so nothing was sent. Once the business email is set up, requests will go straight to JOVILAP.';
+    msg.hidden=false;
+  });
+})();
+</script>
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var feed=document.getElementById('feed');
+  var items=[['RF','Roof repair','Maria G. · Lake Worth Beach · leak over the garage'],['AC','AC not cooling','Daniel R. · Boynton Beach · wants a visit this week'],['PL','Water heater','Tasha W. · West Palm Beach · replacement quote'],['EL','Panel upgrade','Luis M. · Hialeah · 100 to 200 amp'],['LS','Weekly lawn care','Karen P. · Wellington · front and back yard'],['PV','Paver patio','Andre J. · Doral · about 400 sq ft'],['PS','Pool service','Nicole B. · Palm Springs · green pool, needs cleanup'],['RM','Kitchen remodel','Omar S. · Miami Gardens · cabinets and counters']];
+  var k=0;
+  function add(first){var it=items[k%items.length];k++;var li=document.createElement('li');li.innerHTML='<span class="ic">'+it[0]+'</span><div><b>New request: '+it[1]+'</b><small>'+it[2]+'</small></div><time>just now</time>';
+    if(first)li.style.animation='none';feed.insertBefore(li,feed.firstChild);
+    [].slice.call(feed.querySelectorAll('time')).forEach(function(t,i){if(i>0)t.textContent=(i*2)+' min ago'});
+    while(feed.children.length>5)feed.removeChild(feed.lastChild);}
+  if(feed){for(var i=0;i<4;i++)add(true);if(!rm){var timer=null;var run=function(){if(!timer)timer=setInterval(function(){add(false)},2600)};var stop=function(){clearInterval(timer);timer=null};
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es[0].isIntersecting?run():stop()}).observe(feed)}else run();}}
+  [].slice.call(document.querySelectorAll('.spot')).forEach(function(el){el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+  if(!rm&&'IntersectionObserver' in window){
+    var sel='.sec-head,.feat,.feed-wrap,.plan,.note,.concept,.steps li,.about > div,details,.contact-info,#review-form';
+    var els=[].slice.call(document.querySelectorAll(sel)).filter(function(el){return el.getBoundingClientRect().top>innerHeight});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){var sib=el.parentElement?[].indexOf.call(el.parentElement.children,el):0;el.style.setProperty('--rd',Math.min(sib,5)*0.07+'s');el.classList.add('rv');io.observe(el)});
+  }
+})();
+</script>
+
+</body>
+</html>
