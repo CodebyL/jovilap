@@ -9,16 +9,16 @@
 <meta name="description" content="JOVILAP builds clear, mobile-friendly websites for contractors in Palm Beach and Miami-Dade counties.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@700&family=Manrope:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: navy-and-paper corporate site; serif display from the logo, stacked-bar motif as section markers, phone mockup in hero */
 :root{
   --bg:#F6F8FB; --surface:#FFFFFF; --ink:#1B2A41; --muted:#4D5B70; --line:#D9E0EA;
   --navy:#0A3D7A; --blue:#2F74C0; --sky:#8DB8E8; --band:#1B2A41; --band-ink:#F2F5F9; --band-muted:#B4C3D6;
   --focus:#2F74C0; --ok:#1F6B45; --err:#B3261E; --note-bg:#EAF2FB;
-  --display:'Libre Caslon Text',Georgia,'Times New Roman',serif;
+  --display:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--brand:'Libre Caslon Text',Georgia,'Times New Roman',serif;
   --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --mono:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E1622; --surface:#152132; --ink:#E7EDF5; --muted:#A9B7CA; --line:#2A3A52;
@@ -35,7 +35,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17p
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:var(--blue)}
 :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
-h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.2;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.2;text-wrap:balance;margin:0}
 h1{font-size:clamp(2rem,4.6vw,3.25rem)}
 h2{font-size:clamp(1.6rem,3vw,2.25rem)}
 h3{font-size:1.2rem}
@@ -52,7 +52,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;backgroun
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
 .logo svg{height:30px;width:auto;flex:none}
-.logo span{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.18em}
+.logo span{font-family:var(--brand);font-weight:700;font-size:1.35rem;letter-spacing:.18em}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
 .nav ul a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
 .nav ul a:hover{color:var(--blue)}
@@ -178,7 +178,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;font-size:.9rem;color
 .ld-mark i:nth-child(1){background:#FFFFFF;animation-delay:.1s}
 .ld-mark i:nth-child(2){background:#7FA7CC;margin-left:20px;animation-delay:.25s}
 .ld-mark i:nth-child(3){background:#2F74C0;animation-delay:.4s}
-.ld-word{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--band-ink);letter-spacing:.6em;padding-left:.6em;opacity:0;animation:ldWord .6s ease .7s forwards}
+.ld-word{font-family:var(--brand);font-weight:700;font-size:1.6rem;color:var(--band-ink);letter-spacing:.6em;padding-left:.6em;opacity:0;animation:ldWord .6s ease .7s forwards}
 .ld-line{width:140px;height:2px;background:rgba(255,255,255,.15);overflow:hidden}
 .ld-line::after{content:"";display:block;height:100%;background:#8DB8E8;transform:scaleX(0);transform-origin:left;animation:ldBar 1.2s cubic-bezier(.4,0,.2,1) .15s forwards}
 @keyframes ldBar{to{transform:scaleX(1)}}
@@ -352,6 +352,32 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
 .cmp-ctl button{border:0;background:none;color:#B4C3D6;font:600 .8rem var(--body);padding:7px 14px;border-radius:6px;cursor:pointer;transition:background .25s,color .25s}
 .cmp-ctl button:hover{color:#fff}.cmp-ctl button.on{background:#fff;color:#1B2A41}
 @media (prefers-reduced-motion:reduce){.cmp-before,.cmp-line,.pin{transition:none}}
+
+/* De-duplicated styling: sans labels, monitor frame, phase track, Q&A grid */
+.label,.pill-tag,.cmp-tag,.bld-hint{text-transform:none!important;letter-spacing:.01em!important;font-weight:700}
+.label{font-size:.85rem;display:inline-flex;align-items:center;gap:8px}
+.cmp{background:#0B1424!important;padding:10px 10px 0;border-radius:14px!important;box-shadow:0 0 0 1px rgba(141,184,232,.25),0 40px 80px -30px rgba(47,116,192,.65)!important}
+.cmp .cmp-view{border-radius:6px 6px 0 0;overflow:hidden}
+.cmp-bar{justify-content:center;height:34px!important;background:#0B1424!important;border:0!important;padding:0 0 8px!important}
+.cmp-bar span{flex:none!important;margin:0!important;height:24px!important;display:inline-flex;align-items:center;gap:6px;padding:0 14px!important;border-radius:12px!important;background:#16243A!important;color:#B4C3D6!important;font:600 .7rem/24px var(--body)!important}
+.cmp-stand{display:grid;justify-items:center;margin-top:-14px}
+.cmp-stand i{width:70px;height:26px;background:linear-gradient(#0B1424,#16243A)}
+.cmp-stand b{width:150px;height:8px;border-radius:4px 4px 2px 2px;background:#16243A}
+.phases{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.ph-line{position:absolute;left:22px;right:22px;top:22px;height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.ph-line i{display:block;height:100%;width:var(--pf,0%);background:linear-gradient(90deg,var(--navy),var(--blue));transition:width .2s linear}
+.ph{position:relative;display:grid;gap:8px;align-content:start}
+.ph-n{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:3px solid var(--line);font:800 1.05rem var(--display);color:var(--muted);transition:background .4s,border-color .4s,color .4s,transform .4s cubic-bezier(.3,1.6,.5,1)}
+.ph.lit .ph-n{background:var(--navy);border-color:var(--navy);color:#fff;transform:scale(1.08)}
+.ph h3{margin-top:8px}.ph p{color:var(--muted);font-size:.96rem}
+.ph:hover .ph-n{transform:scale(1.15) rotate(-6deg)}
+@media (max-width:860px){.phases{grid-template-columns:1fr;gap:22px}.ph{grid-template-columns:46px 1fr;column-gap:16px}.ph h3,.ph p{grid-column:2}.ph-n{grid-row:1/3}.ph h3{margin-top:10px}.ph-line{left:21px;right:auto;top:22px;bottom:22px;width:3px;height:auto}.ph-line i{width:100%;height:var(--pf,0%)}}
+.qa-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.qa{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:8px;align-content:start;transition:transform .3s cubic-bezier(.3,1.5,.5,1),border-color .3s,box-shadow .3s}
+.qa:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 18px 32px -20px rgba(10,61,122,.45)}
+.qa h3{font-size:1.05rem}.qa p{color:var(--muted);font-size:.96rem}
+.qa:last-child:nth-child(odd){grid-column:1/-1}
+@media (max-width:700px){.qa-grid{grid-template-columns:1fr}}
 .sticky-cta{display:none}
 @media (max-width:480px){
   .sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
@@ -405,7 +431,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       </div>
       <div class="fade-in cmp-wrap" style="--d:.4s">
         <div class="cmp" id="cmp" style="--x:50%">
-          <div class="cmp-bar" aria-hidden="true"><i></i><i></i><i></i><span>sampleroofing.com</span></div>
+          <div class="cmp-bar" aria-hidden="true"><span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>sampleroofing.com</span></div>
           <div class="cmp-view">
             <div class="cmp-after" aria-hidden="true">
               <div class="a-head"><span class="a-logo"><i></i>Sample Roofing</span><span class="a-nav"><i></i><i></i><i></i></span><span class="a-call">Call now<span class="pin pr">Call button always in reach</span></span></div>
@@ -432,6 +458,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
             <input type="range" min="0" max="100" value="50" id="cmpRange" aria-label="Compare a typical contractor website with a JOVILAP website. Lower shows more of the typical site, higher shows more of the JOVILAP site.">
           </div>
         </div>
+        <div class="cmp-stand" aria-hidden="true"><i></i><b></b></div>
         <div class="cmp-ctl" role="group" aria-label="Choose a view">
           <button type="button" data-v="100">Before</button>
           <button type="button" data-v="50" class="on">Compare</button>
@@ -458,18 +485,6 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <div class="feat spot"><h3>Services and service area</h3><p>A clear list of what you do and the towns you cover, so customers know right away if you're a fit.</p></div>
         <div class="feat spot"><h3>License and insurance details</h3><p>Show your license number and insurance status where customers can see them before they call.</p></div>
         <div class="feat spot"><h3>Works on any phone</h3><p>Designed for small screens first, then checked on tablets and computers before launch.</p></div>
-      </div>
-      <div class="feed-wrap">
-        <div class="feed-copy">
-          <div class="label">Quote requests</div>
-          <h3 style="font-size:1.6rem">Requests land in your inbox, ready to call back</h3>
-          <p>Every quote request form sends the customer's name, phone, town, and what they need straight to your email, so you can call back while they're still looking.</p>
-        </div>
-        <div class="inbox" aria-label="Example of quote requests arriving">
-          <div class="inbox-top"><span>Your inbox</span><span class="live"><i aria-hidden="true"></i>Example</span></div>
-          <ul id="feed" aria-live="off"></ul>
-          <div class="inbox-cap">Example requests for illustration. Names and details are made up.</div>
-        </div>
       </div>
     </div>
   </section>
@@ -500,7 +515,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <article class="plan">
           <h3>Care plan</h3>
           <div class="price">$99 <small>per month</small></div>
-          <p>Keeps your website online, secure, and up to date.</p>
+          <p>Hosting, security and small edits, handled every month.</p>
           <ul><li>Hosting and security certificate</li><li>Backups and uptime checks</li><li>Up to 30 minutes of small changes each month</li><li>Extra changes at $65 per hour</li></ul>
           <p class="fine">6-month minimum, then month to month.</p>
         </article>
@@ -546,17 +561,16 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       <div class="sec-head">
         <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="label">Process</div>
-        <h2>How a project works</h2>
-        <p class="lead">Six steps from first conversation to launch. <span class="fx-mark">You always know what's next</span> and what you owe.</p>
+        <h2>From first call to launch</h2>
+        <p class="lead">Four phases, each with a clear handoff. <span class="fx-mark">The price is fixed in writing</span> before anything is built.</p>
       </div>
-      <ol class="steps">
-        <li><h3>Free website review</h3><p>A 20–30 minute conversation about your business and your current website or Google listing.</p></li>
-        <li><h3>Price and agreement</h3><p>You receive a written price and scope. Nothing starts until you sign.</p></li>
-        <li><h3>Deposit and your materials</h3><p>Your first payment starts the project. You send photos, services, and questionnaire answers.</p></li>
-        <li><h3>Design and build</h3><p>Your website is designed and built. You review it and request changes.</p></li>
-        <li><h3>Final payment and launch</h3><p>Once you approve the site and make the final payment, it goes live.</p></li>
-        <li><h3>Care plan</h3><p>Optional monthly care keeps your site online and handles small updates.</p></li>
-      </ol>
+      <div class="phases" id="phases">
+        <div class="ph-line" aria-hidden="true"><i></i></div>
+        <div class="ph"><span class="ph-n">1</span><h3>Free review</h3><p>A short call or visit to see how customers find and reach your business today.</p></div>
+        <div class="ph"><span class="ph-n">2</span><h3>Written quote</h3><p>Pages, price and target date on paper. Work begins only after you approve it.</p></div>
+        <div class="ph"><span class="ph-n">3</span><h3>Build</h3><p>You send photos and details. JOVILAP builds the site and you ask for changes.</p></div>
+        <div class="ph"><span class="ph-n">4</span><h3>Go live</h3><p>After the final payment the site launches on your own web address. Monthly care is optional.</p></div>
+      </div>
     </div>
   </section>
 
@@ -565,7 +579,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       <div style="display:grid;gap:16px">
         <div class="label">About JOVILAP</div>
         <h2>A website company with roots in construction</h2>
-        <p>JOVILAP was founded by [Founder name], who works in construction. He knows how contractors win jobs and what customers look for before they call. When you contact JOVILAP, you deal with him directly from the first conversation to launch.</p>
+        <p>JOVILAP was started by [Founder name], who works in construction every day. He knows how contractors get hired and what homeowners check before they pick up the phone. Every project has one local contact in South Florida: him.</p>
       </div>
       <div class="facts">
         <div><span>Founder &amp; Owner</span><b>[Founder name]</b></div>
@@ -581,16 +595,16 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       <div class="sec-head">
         <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="label">Questions</div>
-        <h2>Common questions</h2>
+        <h2>Before you call</h2>
       </div>
-      <div class="faq">
-        <details><summary>Is the website review really free?</summary><p>Yes. It's a 20–30 minute conversation with no obligation. You'll get a written price afterward if you want to move forward.</p></details>
-        <details><summary>Do I own my website?</summary><p>Yes. Once you've paid in full, the website and its content are yours. Your domain name is registered in your own name from the start.</p></details>
-        <details><summary>How long does it take?</summary><p>It depends mostly on how quickly your photos and information arrive. You'll get an estimated launch date once JOVILAP has your materials.</p></details>
-        <details><summary>Do I have to sign up for the care plan?</summary><p>No, it's optional. Without it, you'll need to arrange your own hosting and updates. With it, hosting, backups, and small changes are handled for you.</p></details>
-        <details><summary>What if I stop the care plan?</summary><p>After the 6-month minimum you can stop any month. You keep your domain and content, and JOVILAP will help move your website to your own hosting.</p></details>
-        <details><summary>Will my website get me more customers or rank first on Google?</summary><p>No one can honestly guarantee that. A clear website makes it easier for customers who find you to trust you and contact you. Search ranking depends on many things outside the website.</p></details>
-        <details><summary>Do you write the text for my website?</summary><p>You answer a short questionnaire and JOVILAP turns your answers into clear website text. Writing everything from scratch without your input is not included.</p></details>
+      <div class="qa-grid">
+        <div class="qa"><h3>What does the free review include?</h3><p>A quick look at your current website or Google listing and how customers reach you now. There's no cost and no commitment.</p></div>
+        <div class="qa"><h3>Whose name is the website under?</h3><p>Your business's. The web address is registered to you from day one, and the finished site is yours after the final payment.</p></div>
+        <div class="qa"><h3>How soon can it launch?</h3><p>That mostly depends on how quickly your photos and details come in. Your written quote includes a target launch date.</p></div>
+        <div class="qa"><h3>Is the $99 care plan required?</h3><p>No. It covers hosting, backups and small edits each month. Without it, you arrange hosting and changes yourself.</p></div>
+        <div class="qa"><h3>Can I cancel care later?</h3><p>Yes. After the first six months you can stop in any month, and JOVILAP helps move the site wherever you choose.</p></div>
+        <div class="qa"><h3>Will this put me at the top of Google?</h3><p>Nobody can honestly promise that. A clear, fast site helps the people who do find you decide to call.</p></div>
+        <div class="qa"><h3>Who writes the words on the site?</h3><p>You fill out a short questionnaire about your business. JOVILAP turns your answers into clear website copy.</p></div>
       </div>
     </div>
   </section>
@@ -711,7 +725,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
   // magnetic buttons
   if(fine)$$('.hero .btn, #review-form .btn, header .btn').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)'});b.addEventListener('pointerleave',function(){b.style.transform=''})});
   // about band parallax bars
-  var band=$('.band');if(band){var sets=[[8,'8%','-30px',260],[ -4,'auto','62%',180]];var els=sets.map(function(c,i){var d=document.createElement('div');d.className='fx-para';d.setAttribute('aria-hidden','true');d.style.width=c[3]+'px';d.style[i?'right':'left']=i?'4%':c[1];d.style.top=i?'auto':'10%';if(i)d.style.bottom='8%';d.innerHTML='<i></i><i style="margin-left:'+(c[3]*.18)+'px"></i><i></i>';band.insertBefore(d,band.firstChild);return [d,c[0]]});
+  var band=$('.band');if(band){var sets=[[8,'8%','-30px',260],[ -4,'auto','62%',180]];var els=sets.map(function(c,i){var d=document.createElement('div');d.className='fx-para';d.setAttribute('aria-hidden','true');d.style.width=c[3]+'px';d.style[i?'right':'left']=i?(-c[3]*.55)+'px':(-c[3]*.6)+'px';d.style.top=i?'auto':'10%';if(i)d.style.bottom='8%';d.innerHTML='<i></i><i style="margin-left:'+(c[3]*.18)+'px"></i><i></i>';band.insertBefore(d,band.firstChild);return [d,c[0]]});
     var tk=0;var par=function(){tk=0;var r=band.getBoundingClientRect(),p=(r.top+r.height/2-innerHeight/2);els.forEach(function(e){e[0].style.transform='translateY('+(p*e[1]/40)+'px)'})};addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(par)}},{passive:true});par()}
   // marquee reacts to scroll speed
   var mq=$('.marquee'),tr=mq&&$('.track',mq);if(tr&&tr.getAnimations){var last=scrollY,vel=0,anim=null;
@@ -730,6 +744,16 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
   r.addEventListener('input',function(){set(+r.value,false)});
   btns.forEach(function(b){b.addEventListener('click',function(){set(+b.dataset.v,true)})});
   set(50,true);
+})();
+</script>
+<script>
+(function(){
+  var ph=document.getElementById('phases');if(!ph)return;
+  var items=[].slice.call(ph.querySelectorAll('.ph')),tk=0;
+  function up(){tk=0;var r=ph.getBoundingClientRect(),mid=innerHeight*.62,narrow=innerWidth<=860,p=Math.max(0,Math.min(1,(mid-r.top)/(r.height*(narrow?1:.9))));ph.style.setProperty('--pf',(p*100)+'%');
+    items.forEach(function(it,i){it.classList.toggle('lit',p>=(i/(items.length-1))*0.98||p>=1)})}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ph.style.setProperty('--pf','100%');items.forEach(function(i){i.classList.add('lit')});return}
+  addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up)}},{passive:true});addEventListener('resize',up);up();
 })();
 </script>
 </body>
