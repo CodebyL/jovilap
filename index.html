@@ -302,51 +302,56 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
 @media (prefers-reduced-motion:reduce){.feat,.plans .plan,.steps li h3,.steps li p,.sec-head .bars i{transform:none!important;opacity:1!important;transition:none}.steps li::after{transform:none}.fx-mark{background-size:100% 100%}.scr-btn.call::after,.scr-gallery i{animation:none}}
 
 
-/* Website builder toy */
-.slot.full>*{width:100%;box-sizing:border-box}
-.bld-wrap{display:grid;gap:14px;justify-items:center;width:100%;max-width:430px;justify-self:center}
-.bld-hint{margin:0;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#DCE8F6;text-align:center}
-.bld-dot{width:8px;height:8px;border-radius:50%;background:#8DB8E8;animation:ping 2s ease-out infinite;flex:none}
-.bld-frame{position:relative;width:100%;border-radius:12px;background:#0E1A2B;border:1px solid rgba(141,184,232,.3);box-shadow:0 40px 80px -30px rgba(47,116,192,.6);overflow:hidden;transition:box-shadow .4s,border-color .4s}
-.bld-frame.hot{border-color:#8DB8E8;box-shadow:0 0 0 4px rgba(141,184,232,.25),0 40px 80px -30px rgba(47,116,192,.8)}
-.bld-bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(141,184,232,.18)}
-.bld-bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25)}
-.bld-bar span{margin-left:10px;flex:1;height:18px;border-radius:9px;background:rgba(255,255,255,.07);font:500 .64rem/18px var(--mono);color:#9FB1C8;padding-left:10px}
-.bld-page{display:grid;gap:8px;padding:12px;background-image:linear-gradient(rgba(141,184,232,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(141,184,232,.07) 1px,transparent 1px);background-size:16px 16px}
-.slot{min-height:40px;border:1.5px dashed rgba(141,184,232,.4);border-radius:6px;display:grid;place-items:center;transition:border-color .3s,background .3s}
-.slot.tall{min-height:84px}
-.slot em{font:500 .66rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(141,184,232,.65);font-style:normal}
-.slot.want{border-color:#8DB8E8;background:rgba(141,184,232,.08)}
-.slot.full{border:0;display:block!important;width:100%;justify-self:stretch;padding:0;animation:bldPop .55s cubic-bezier(.3,1.6,.5,1)}
-.m-header{display:flex;align-items:center;gap:8px;background:#fff;border-radius:6px;padding:9px 10px}
-.m-header i{width:16px;height:16px;border-radius:4px;background:#0A3D7A}.m-header b{font:700 .7rem var(--body);color:#1B2A41;flex:1}
-.m-header span{width:42px;height:4px;border-radius:2px;background:#C9D9EC;box-shadow:0 -7px 0 #C9D9EC}
-.m-hero{background:linear-gradient(135deg,#0A3D7A,#2F74C0);border-radius:6px;padding:16px 14px;color:#fff}
-.m-hero strong{display:block;font:700 1rem/1.15 var(--display)}.m-hero span{font-size:.66rem;opacity:.85}
-.m-call{background:#5B9BE0;color:#fff;border-radius:6px;text-align:center;padding:10px;font:700 .72rem var(--body)}
-.m-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.m-gal i{height:44px;border-radius:5px;background:linear-gradient(135deg,#8DB8E8,#2F74C0)}.m-gal i:nth-child(2){background:linear-gradient(135deg,#C9D9EC,#5B9BE0)}.m-gal i:nth-child(3){background:linear-gradient(135deg,#2F74C0,#0A3D7A)}
-.m-form{background:#fff;border-radius:6px;padding:10px;display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:center}.m-form i{height:20px;border-radius:4px;background:#EAF2FB;border:1px solid #D9E0EA}.m-form b{font:700 .62rem var(--body);background:#0A3D7A;color:#fff;border-radius:4px;padding:6px 8px}
-.bld-tray{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;min-height:44px}
-.piece{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#F2F5F9;border-radius:8px;padding:9px 12px 9px 9px;font:600 .82rem var(--body);cursor:grab;touch-action:none;user-select:none;transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,border-color .2s,opacity .3s}
-.piece b{width:24px;height:24px;border-radius:6px;background:var(--pc);color:#0A1220;display:grid;place-items:center;font-size:.8rem}
-.piece:hover{transform:translateY(-4px) rotate(-2deg);background:rgba(255,255,255,.12);border-color:#8DB8E8}
-.piece:active{cursor:grabbing}
-.piece.used{opacity:0;pointer-events:none;transform:scale(.6)}
-.piece.ghost{position:fixed;z-index:400;margin:0;pointer-events:none;cursor:grabbing;box-shadow:0 20px 40px -10px rgba(0,0,0,.6);background:#1B2A41;border-color:#8DB8E8}
-.bld-meter{margin:0;display:flex;align-items:center;gap:10px;font:500 .74rem var(--mono);color:var(--band-muted)}
-.bld-track{width:120px;height:4px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden}
-.bld-track i{display:block;height:100%;width:0;background:#8DB8E8;transition:width .5s cubic-bezier(.3,1.4,.5,1)}
-.bld-done{position:absolute;inset:30px 0 0;display:grid;align-content:center;justify-items:center;gap:10px;text-align:center;padding:20px;background:rgba(10,18,32,.86);backdrop-filter:blur(3px);color:#fff;animation:bldFade .4s ease}
-.bld-done strong{font:700 1.5rem var(--display)}.bld-done span{color:#B4C3D6;font-size:.9rem;max-width:30ch}
-.bld-done button{margin-top:6px;border:1px solid rgba(255,255,255,.4);background:none;color:#fff;border-radius:6px;padding:9px 16px;font:600 .85rem var(--body);cursor:pointer}
-.bld-done button:hover{background:#fff;color:#1B2A41}
-.bld-badge{display:grid;gap:5px;width:60px;margin-bottom:6px}.bld-badge i{height:12px;width:48px;border-radius:2px;transform:scaleX(0);transform-origin:left;animation:bldBar .5s cubic-bezier(.3,1.6,.5,1) forwards}
-.bld-badge i:nth-child(1){background:#fff;animation-delay:.1s}.bld-badge i:nth-child(2){background:#8DB8E8;margin-left:12px;animation-delay:.2s}.bld-badge i:nth-child(3){background:#2F74C0;animation-delay:.3s}
-.bld-wrap [hidden]{display:none!important}
-@keyframes bldPop{from{transform:scale(.6);opacity:0}}
-@keyframes bldFade{from{opacity:0}}
-@keyframes bldBar{to{transform:none}}
-@media (prefers-reduced-motion:reduce){.slot.full,.bld-done,.bld-dot{animation:none}.bld-badge i{transform:none;animation:none}}
+
+/* Before / after website comparison */
+.cmp-wrap{display:grid;gap:14px;justify-items:center;width:100%;max-width:470px;justify-self:center}
+.cmp{width:100%;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(141,184,232,.3),0 40px 80px -30px rgba(47,116,192,.65)}
+.cmp-bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:#E9EEF4;border-bottom:1px solid #D9E0EA}
+.cmp-bar i{width:9px;height:9px;border-radius:50%;background:#C3CCD8}
+.cmp-bar span{margin-left:10px;flex:1;height:18px;border-radius:9px;background:#fff;font:500 .64rem/18px var(--mono);color:#4D5B70;padding-left:10px}
+.cmp-view{position:relative;aspect-ratio:4/3.3;max-width:100%;overflow:hidden;user-select:none;touch-action:none;color:#1B2A41}
+.cmp-after,.cmp-before{position:absolute;inset:0}
+.cmp-before{clip-path:inset(0 calc(100% - var(--x)) 0 0);background:#E8E2C8;font-family:"Times New Roman",Times,serif;color:#222;transition:clip-path .55s cubic-bezier(.7,0,.3,1)}
+.cmp.drag .cmp-before{transition:none}
+.b-top{background:#5A3E1B;color:#FFE066;text-align:center;font:700 .82rem "Times New Roman",serif;padding:8px;letter-spacing:.02em}
+.b-body{display:grid;grid-template-columns:28% 1fr;gap:8px;padding:8px}
+.b-side{display:grid;gap:5px;align-content:start;background:#D6CDA6;padding:8px;border:2px outset #EFE7C6}
+.b-side u{color:#2B3FD6;font-size:.66rem}
+.b-main p{margin:0 0 6px;font-size:.62rem;line-height:1.35}
+.b-main .b-h{font-size:.86rem;font-weight:700;color:#7A1C1C}
+.b-img{height:64px;border:1px dashed #8A7D57;display:grid;place-items:center;font-size:.6rem;color:#6E6446;margin-bottom:6px;background:#EFE9D2}
+.b-main .b-sm{font-size:.54rem;color:#555}
+.cmp-after{background:#F6F8FB;display:flex;flex-direction:column;font-family:var(--body)}
+.a-head{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border-bottom:1px solid #E3E8EF}
+.a-logo{display:flex;align-items:center;gap:6px;font:700 .72rem var(--body)}.a-logo i{width:14px;height:14px;border-radius:3px;background:#0A3D7A}
+.a-nav{flex:1;display:flex;gap:6px;justify-content:flex-end}.a-nav i{width:22px;height:4px;border-radius:2px;background:#D9E0EA}
+.a-call{font:700 .62rem var(--body);background:#2F74C0;color:#fff;padding:6px 9px;border-radius:5px}
+.a-hero{background:linear-gradient(135deg,#0A3D7A,#1F5A9E);color:#fff;padding:18px 14px;display:grid;gap:6px}
+.a-hero small{font:500 .56rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#BFD6F2}
+.a-hero strong{font:700 1.15rem/1.15 var(--display)}
+.a-btns{display:flex;gap:6px;flex-wrap:wrap}.a-btns b{font:700 .62rem var(--body);background:#fff;color:#0A3D7A;padding:7px 10px;border-radius:5px}.a-btns em{font:600 .62rem var(--body);font-style:normal;border:1px solid rgba(255,255,255,.5);padding:6px 9px;border-radius:5px}
+.a-trust{display:flex;justify-content:space-around;padding:9px 6px;background:#fff;border-bottom:1px solid #E3E8EF}
+.a-trust>span{display:flex;align-items:center;gap:5px;font:600 .58rem var(--body);color:#1B2A41}.a-trust i{width:9px;height:9px;border-radius:50%;background:#2F74C0}
+.a-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px 12px 6px;flex:none;height:86px}
+.a-form{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:center;margin:4px 12px 12px;padding:8px;background:#fff;border:1px solid #E3E8EF;border-radius:6px}.a-form i{height:20px;border-radius:4px;background:#EAF2FB;border:1px solid #D9E0EA}.a-form b{font:700 .6rem var(--body);background:#0A3D7A;color:#fff;border-radius:4px;padding:6px 9px}.a-gal i{border-radius:5px;background:linear-gradient(135deg,#8DB8E8,#2F74C0)}.a-gal i:nth-child(2){background:linear-gradient(135deg,#C9D9EC,#5B9BE0)}.a-gal i:nth-child(3){background:linear-gradient(135deg,#2F74C0,#0A3D7A)}
+.a-call,.a-trust>span,.a-form{position:relative}
+.pin{position:absolute!important;display:block!important;font:600 .58rem var(--body)!important;color:#fff!important;left:50%;top:calc(100% + 8px);z-index:3;transform:translate(-50%,6px);background:#1B2A41;color:#fff;font:600 .58rem var(--body);padding:5px 8px;border-radius:5px;white-space:nowrap;opacity:0;transition:opacity .35s,transform .35s;pointer-events:none;box-shadow:0 6px 16px rgba(10,18,32,.25)}
+.pin.pr{left:auto;right:0;transform:translate(0,6px)}.pin.pr.on{transform:none}.pin.pr::before{left:auto;right:18px}
+.pin::before{content:"";position:absolute;left:50%;top:-4px;width:8px;height:8px;margin-left:-4px;background:#1B2A41;transform:rotate(45deg)}
+.pin.on{opacity:1;transform:translate(-50%,0)}
+.cmp-line{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(10,61,122,.25);pointer-events:none;transition:left .55s cubic-bezier(.7,0,.3,1)}
+.cmp.drag .cmp-line{transition:none}
+.cmp-line span{position:absolute;top:50%;left:50%;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;background:#fff;color:#0A3D7A;display:grid;place-items:center;box-shadow:0 6px 18px rgba(10,18,32,.3);transition:transform .2s}
+.cmp-view:hover .cmp-line span{transform:scale(1.1)}
+.cmp-view:focus-within .cmp-line span{box-shadow:0 0 0 3px #8DB8E8,0 6px 18px rgba(10,18,32,.3)}
+.cmp-tag{position:absolute;bottom:10px;font:500 .58rem var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:4px;pointer-events:none}
+.cmp-tag.l{left:10px;background:rgba(90,62,27,.85);color:#FFE9B0}.cmp-tag.r{right:10px;background:rgba(10,61,122,.9);color:#fff}
+.cmp-view input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+@media (max-width:520px){.cmp-view{aspect-ratio:4/4.6}.pin{font-size:.54rem}}
+.cmp-ctl{display:inline-flex;padding:4px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.cmp-ctl button{border:0;background:none;color:#B4C3D6;font:600 .8rem var(--body);padding:7px 14px;border-radius:6px;cursor:pointer;transition:background .25s,color .25s}
+.cmp-ctl button:hover{color:#fff}.cmp-ctl button.on{background:#fff;color:#1B2A41}
+@media (prefers-reduced-motion:reduce){.cmp-before,.cmp-line,.pin{transition:none}}
 .sticky-cta{display:none}
 @media (max-width:480px){
   .sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
@@ -398,32 +403,41 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
           <span><b>Websites from</b> $750</span>
         </div>
       </div>
-      <div class="fade-in bld-wrap" style="--d:.4s">
-        <p class="bld-hint"><span class="bld-dot" aria-hidden="true"></span><span id="bldHint">Drag the blocks into the browser to build a website</span></p>
-        <div class="bld-frame" id="bldFrame" aria-label="Website being built">
-          <div class="bld-bar" aria-hidden="true"><i></i><i></i><i></i><span>yourbusiness.com</span></div>
-          <div class="bld-page">
-            <div class="slot" data-k="header"><em>Header</em></div>
-            <div class="slot tall" data-k="hero"><em>Hero banner</em></div>
-            <div class="slot" data-k="call"><em>Call button</em></div>
-            <div class="slot" data-k="gallery"><em>Photo gallery</em></div>
-            <div class="slot" data-k="form"><em>Quote form</em></div>
-          </div>
-          <div class="bld-done" id="bldDone" hidden>
-            <div class="bld-badge" aria-hidden="true"><i></i><i></i><i></i></div>
-            <strong>Website built.</strong>
-            <span>That's what JOVILAP does for contractors, in about two weeks instead of two minutes.</span>
-            <button type="button" id="bldReset">Build it again</button>
+      <div class="fade-in cmp-wrap" style="--d:.4s">
+        <div class="cmp" id="cmp" style="--x:50%">
+          <div class="cmp-bar" aria-hidden="true"><i></i><i></i><i></i><span>sampleroofing.com</span></div>
+          <div class="cmp-view">
+            <div class="cmp-after" aria-hidden="true">
+              <div class="a-head"><span class="a-logo"><i></i>Sample Roofing</span><span class="a-nav"><i></i><i></i><i></i></span><span class="a-call">Call now<span class="pin pr">Call button always in reach</span></span></div>
+              <div class="a-hero"><small>Licensed · Insured · Free estimates</small><strong>Roof repair you can trust</strong><span class="a-btns"><b>Request a quote</b><em>(561) 555-0100</em></span></div>
+              <div class="a-trust"><span><i></i>Licensed<span class="pin">License shown up front</span></span><span><i></i>Free estimates</span><span><i></i>Local crew</span></div>
+              <div class="a-gal"><i></i><i></i><i></i></div>
+              <div class="a-form"><i></i><i></i><b>Get my quote</b><span class="pin">Quote request form</span></div>
+            </div>
+            <div class="cmp-before" aria-hidden="true">
+              <div class="b-top">WELCOME TO OUR WEBSITE!!!</div>
+              <div class="b-body">
+                <div class="b-side"><u>Home</u><u>About Us</u><u>Our Services</u><u>Links</u><u>Guestbook</u></div>
+                <div class="b-main">
+                  <p class="b-h">Sample Roofing Contracting Inc.</p>
+                  <p>We have been serving the area with roofing, siding, gutters and more. Please browse our website for more information about our company and the services we provide to our valued customers.</p>
+                  <div class="b-img">Photo coming soon</div>
+                  <p class="b-sm">For estimates please contact the office. Ph: 561-555-0100 &nbsp; Fax: 561-555-0101</p>
+                  <p class="b-sm">Last updated 03/14/2011 · Visitors: 004213</p>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-line" aria-hidden="true"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+            <span class="cmp-tag l" aria-hidden="true">Typical site</span><span class="cmp-tag r" aria-hidden="true">JOVILAP site</span>
+            <input type="range" min="0" max="100" value="50" id="cmpRange" aria-label="Compare a typical contractor website with a JOVILAP website. Lower shows more of the typical site, higher shows more of the JOVILAP site.">
           </div>
         </div>
-        <div class="bld-tray" id="bldTray" role="group" aria-label="Website blocks">
-          <button type="button" class="piece" data-k="gallery" style="--pc:#8DB8E8"><b>▦</b>Photo gallery</button>
-          <button type="button" class="piece" data-k="header" style="--pc:#FFFFFF"><b>☰</b>Header</button>
-          <button type="button" class="piece" data-k="form" style="--pc:#C9D9EC"><b>✎</b>Quote form</button>
-          <button type="button" class="piece" data-k="hero" style="--pc:#2F74C0"><b>▬</b>Hero banner</button>
-          <button type="button" class="piece" data-k="call" style="--pc:#5B9BE0"><b>☏</b>Call button</button>
+        <div class="cmp-ctl" role="group" aria-label="Choose a view">
+          <button type="button" data-v="100">Before</button>
+          <button type="button" data-v="50" class="on">Compare</button>
+          <button type="button" data-v="0">After</button>
         </div>
-        <p class="bld-meter"><span id="bldCount">0</span> of 5 built<span class="bld-track"><i id="bldFill"></i></span></p>
+        <p class="phone-cap">Concept example. Sample Roofing is not a real business.</p>
       </div>
     </div>
   </section>
@@ -708,31 +722,14 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
 </script>
 <script>
 (function(){
-  var frame=document.getElementById('bldFrame');if(!frame)return;
-  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var tray=document.getElementById('bldTray'),done=document.getElementById('bldDone'),cnt=document.getElementById('bldCount'),fill=document.getElementById('bldFill'),hint=document.getElementById('bldHint');
-  var R={header:'<div class="m-header"><i></i><b>Sample Roofing</b><span></span></div>',hero:'<div class="m-hero"><strong>Roof repair you can trust</strong><span>Licensed · Free estimates</span></div>',call:'<div class="m-call">Tap to call (561) 555-0100</div>',gallery:'<div class="m-gal"><i></i><i></i><i></i></div>',form:'<div class="m-form"><i></i><i></i><b>Get a quote</b></div>'};
-  var lines=['Nice. Keep going.','Looking good.','Almost there.','One more block.'];
-  function slot(k){return frame.querySelector('.slot[data-k="'+k+'"]')}
-  function place(p,fromRect){var k=p.dataset.k,sl=slot(k);if(!sl||sl.classList.contains('full'))return;
-    var land=function(){sl.classList.add('full');sl.innerHTML=R[k];p.classList.add('used');var n=frame.querySelectorAll('.slot.full').length;cnt.textContent=n;fill.style.width=(n*20)+'%';
-      if(n<5)hint.textContent=lines[n-1];else{hint.textContent='Done!';setTimeout(function(){done.hidden=false;if(window.fxConfetti)window.fxConfetti(frame);document.getElementById('bldReset').focus()},350)}};
-    if(rm||!fromRect){land();return}
-    var to=sl.getBoundingClientRect(),g=p.cloneNode(true);g.classList.add('ghost');g.style.left=fromRect.left+'px';g.style.top=fromRect.top+'px';g.style.width=fromRect.width+'px';document.body.appendChild(g);p.classList.add('used');
-    g.animate([{transform:'translate(0,0) scale(1)'},{transform:'translate('+(to.left+to.width/2-fromRect.left-fromRect.width/2)+'px,'+(to.top+to.height/2-fromRect.top-fromRect.height/2)+'px) scale(.7)',opacity:.2}],{duration:420,easing:'cubic-bezier(.5,0,.3,1)'}).onfinish=function(){g.remove();land()};}
-  [].slice.call(tray.querySelectorAll('.piece')).forEach(function(p){
-    var sx,sy,drag=null,moved=false,ox,oy;
-    p.addEventListener('pointerdown',function(e){if(e.button)return;sx=e.clientX;sy=e.clientY;moved=false;p.setPointerCapture(e.pointerId);var r=p.getBoundingClientRect();ox=sx-r.left;oy=sy-r.top});
-    p.addEventListener('pointermove',function(e){if(sx==null)return;if(!moved&&Math.hypot(e.clientX-sx,e.clientY-sy)>6){moved=true;var r=p.getBoundingClientRect();drag=p.cloneNode(true);drag.classList.add('ghost');drag.style.width=r.width+'px';document.body.appendChild(drag);p.style.opacity='.25';slot(p.dataset.k).classList.add('want')}
-      if(drag){drag.style.left=(e.clientX-ox)+'px';drag.style.top=(e.clientY-oy)+'px';drag.style.transform='rotate('+Math.max(-8,Math.min(8,(e.clientX-sx)/30))+'deg)';var f=frame.getBoundingClientRect();frame.classList.toggle('hot',e.clientX>f.left&&e.clientX<f.right&&e.clientY>f.top&&e.clientY<f.bottom)}});
-    var end=function(e){if(sx==null)return;sx=null;slot(p.dataset.k).classList.remove('want');frame.classList.remove('hot');
-      if(!drag)return;var f=frame.getBoundingClientRect(),inside=e.clientX>f.left&&e.clientX<f.right&&e.clientY>f.top&&e.clientY<f.bottom,dr=drag.getBoundingClientRect(),d=drag;drag=null;p.style.opacity='';
-      if(inside){d.remove();place(p,dr)}else{var pr=p.getBoundingClientRect();d.animate([{transform:d.style.transform||'none'},{transform:'translate('+(pr.left-dr.left)+'px,'+(pr.top-dr.top)+'px)'}],{duration:350,easing:'cubic-bezier(.3,1.4,.5,1)'}).onfinish=function(){d.remove()}}};
-    p.addEventListener('pointerup',end);p.addEventListener('pointercancel',end);
-    p.addEventListener('click',function(){if(moved){moved=false;return}place(p,p.getBoundingClientRect())});
-  });
-  document.getElementById('bldReset').addEventListener('click',function(){done.hidden=true;[].slice.call(frame.querySelectorAll('.slot')).forEach(function(sl){sl.classList.remove('full');sl.innerHTML='<em>'+({header:'Header',hero:'Hero banner',call:'Call button',gallery:'Photo gallery',form:'Quote form'})[sl.dataset.k]+'</em>'});
-    [].slice.call(tray.querySelectorAll('.piece')).forEach(function(p){p.classList.remove('used')});cnt.textContent='0';fill.style.width='0';hint.textContent='Drag the blocks into the browser to build a website';tray.querySelector('.piece').focus()});
+  var c=document.getElementById('cmp');if(!c)return;
+  var r=document.getElementById('cmpRange'),pins=[].slice.call(c.querySelectorAll('.pin')),btns=[].slice.call(document.querySelectorAll('.cmp-ctl button'));
+  function set(v,anim){c.classList.toggle('drag',!anim);c.style.setProperty('--x',v+'%');r.value=v;
+    var vr=c.querySelector('.cmp-view').getBoundingClientRect();pins.forEach(function(p){var a=p.parentNode.getBoundingClientRect(),px=(a.left+a.width/2-vr.left)/vr.width*100;p.classList.toggle('on',px>v+6)});
+    btns.forEach(function(b){b.classList.toggle('on',+b.dataset.v===(v>=95?100:v<=5?0:50)&&(v>=95||v<=5||Math.abs(v-50)<3))})}
+  r.addEventListener('input',function(){set(+r.value,false)});
+  btns.forEach(function(b){b.addEventListener('click',function(){set(+b.dataset.v,true)})});
+  set(50,true);
 })();
 </script>
 </body>
