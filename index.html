@@ -379,6 +379,190 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
 .qa h3{font-size:1.05rem}.qa p{color:var(--muted);font-size:.96rem}
 .qa:last-child:nth-child(odd){grid-column:1/-1}
 @media (max-width:700px){.qa-grid{grid-template-columns:1fr}}
+
+/* What's included: premium bento */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;margin-top:8px}
+.bx{grid-column:span 2;position:relative;display:grid;grid-template-rows:auto 1fr;border-radius:18px;background:var(--surface);border:1px solid var(--line);overflow:hidden;isolation:isolate;opacity:0;transform:translateY(28px) scale(.98);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
+.bx-call,.bx-req{grid-column:span 3}
+.bento.in .bx{opacity:1;transform:none}
+.bento.in .bx:nth-child(2){transition-delay:.08s}.bento.in .bx:nth-child(3){transition-delay:.16s}.bento.in .bx:nth-child(4){transition-delay:.24s}.bento.in .bx:nth-child(5){transition-delay:.32s}
+.bx:hover{border-color:color-mix(in srgb,var(--blue) 55%,var(--line));box-shadow:0 30px 60px -34px rgba(10,61,122,.55);transform:translateY(-6px)}
+.bx::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(141,184,232,.55),transparent 35%,transparent 70%,rgba(47,116,192,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:.6;pointer-events:none;z-index:2}
+.vz{position:relative;height:190px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--blue) 16%,transparent),transparent 70%),linear-gradient(color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px) 0 0/22px 22px;border-bottom:1px solid var(--line)}
+.vz::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,var(--surface));pointer-events:none}
+.bx-t{display:grid;gap:8px;padding:22px 24px 26px;align-content:start}
+.bx-k{font:700 .74rem var(--body);color:var(--blue);letter-spacing:.02em}
+.bx-t h3{font-size:1.3rem;line-height:1.2}
+.bx-t p{color:var(--muted);font-size:.97rem;max-width:46ch}
+/* call */
+.vz-call{position:relative;display:grid;place-items:center;z-index:1}
+.vz-call b{position:relative;display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;font:700 1rem var(--body);padding:14px 22px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(47,116,192,.7);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.bx-call:hover .vz-call b{transform:scale(1.06)}
+.vz-call b svg{animation:bxRing 2.4s ease-in-out infinite}
+.ring{position:absolute;width:220px;height:70px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--blue) 60%,transparent);opacity:0}
+.bento.in .ring{animation:bxPulse 2.6s ease-out infinite}.ring.r2{animation-delay:.85s!important}.ring.r3{animation-delay:1.7s!important}
+.vz-chip{position:absolute;z-index:1;font:600 .72rem var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:6px 10px;border-radius:999px;box-shadow:0 8px 18px -10px rgba(10,18,32,.4);animation:bxFloat 5s ease-in-out infinite}
+.vz-chip.c1{left:12%;top:22%}.vz-chip.c2{right:12%;bottom:24%;animation-delay:-2.5s}
+/* requests */
+.vz-req{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:88%}
+.rq-list{display:grid;gap:8px;flex:1;min-width:0}
+.rq{display:grid;grid-template-columns:8px auto 1fr;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:.8rem;box-shadow:0 8px 18px -12px rgba(10,18,32,.45);opacity:0;transform:translateX(-16px)}
+.rq i{width:8px;height:8px;border-radius:50%;background:var(--ok)}.rq b{font-weight:700;color:var(--ink);white-space:nowrap}.rq em{font-style:normal;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bento.in .rq{animation:bxReq 6s cubic-bezier(.2,.8,.2,1) infinite}.bento.in .rq:nth-child(2){animation-delay:.25s}.bento.in .rq:nth-child(3){animation-delay:.5s}
+.rq-arrow{width:34px;height:2px;background:linear-gradient(90deg,transparent,var(--blue));position:relative;flex:none}.rq-arrow::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left-color:var(--blue)}
+.rq-mail{display:grid;justify-items:center;gap:6px;color:var(--blue);flex:none}
+.rq-mail svg{background:var(--note-bg);border-radius:12px;padding:12px;width:52px;height:52px;box-sizing:border-box}
+.bento.in .rq-mail svg{animation:bxBump 6s ease-in-out infinite}
+.rq-mail small{font:600 .62rem var(--body);color:var(--muted)}
+/* map */
+.vz-map{position:relative;z-index:1;width:88%;max-width:300px;height:auto;overflow:visible}
+.vz-map .sea{fill:color-mix(in srgb,var(--blue) 22%,transparent)}
+.vz-map .area{fill:color-mix(in srgb,var(--blue) 10%,transparent);stroke:var(--blue);stroke-width:1.6;stroke-dasharray:5 5;stroke-dashoffset:300}
+.bento.in .vz-map .area{animation:bxDraw 2.2s ease forwards .3s}
+.vz-map .pins g{opacity:0}
+.vz-map .pins path{fill:var(--navy)}.vz-map .pins circle{fill:var(--surface)}
+.vz-map .pins text{font:600 10px var(--body);fill:var(--ink)}
+.bento.in .vz-map .pins g{animation:bxPin .6s cubic-bezier(.3,1.7,.5,1) forwards;animation-delay:calc(.6s + var(--i)*.18s)}
+.bx-map:hover .pins path{fill:var(--blue)}
+/* reviews */
+.vz-rev{position:relative;z-index:1;display:flex;align-items:center;gap:16px}
+.rv-score{display:grid;justify-items:center;gap:4px}
+.rv-score b{font:800 2.4rem/1 var(--display);color:var(--ink)}
+.stars{display:flex;gap:3px}.stars i{width:16px;height:16px;background:var(--line);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);transition:background .3s}
+.bento.in .stars i{animation:bxStar .4s ease forwards;animation-delay:calc(.5s + var(--i)*.12s)}
+.rv-score small{font:600 .62rem var(--body);color:var(--muted)}
+.rv-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:8px;max-width:170px;box-shadow:0 10px 22px -14px rgba(10,18,32,.5);transform:rotate(2deg);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.bx-rev:hover .rv-card{transform:rotate(0) scale(1.04)}
+.rv-card q{font-size:.82rem;color:var(--ink);font-weight:600;quotes:"\201C" "\201D"}
+.rv-badge{display:inline-flex;align-items:center;gap:5px;font:700 .66rem var(--body);color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);padding:4px 8px;border-radius:999px;justify-self:start}
+/* integration */
+.vz-int{position:relative;z-index:1;width:88%;max-width:300px;height:auto}
+.vz-int .links path{stroke:var(--blue);stroke-width:1.6;fill:none;stroke-dasharray:4 6;opacity:.7}
+.bento.in .vz-int .links path{animation:bxFlow 1.6s linear infinite}
+.vz-int .node circle{fill:var(--bg);stroke:var(--line);stroke-width:1.5;transition:stroke .3s}
+.vz-int .node text{font:700 8.5px var(--body);fill:var(--ink);text-anchor:middle}
+.vz-int .node{transition:transform .4s}
+.bx-int:hover .node circle{stroke:var(--blue)}
+.vz-int .hub rect:first-child{fill:var(--navy)}
+.vz-int .hb{fill:#fff}.vz-int .hb.b2{fill:#8DB8E8}.vz-int .hb.b3{fill:#2F74C0}
+.bento.in .vz-int .hub{animation:bxHub 3s ease-in-out infinite}
+@keyframes bxPulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+@keyframes bxRing{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(-14deg)}80%{transform:rotate(14deg)}85%{transform:rotate(-10deg)}90%{transform:rotate(8deg)}}
+@keyframes bxFloat{50%{transform:translateY(-6px)}}
+@keyframes bxReq{0%{opacity:0;transform:translateX(-16px)}12%,60%{opacity:1;transform:none}78%,100%{opacity:0;transform:translateX(40px) scale(.9)}}
+@keyframes bxBump{0%,62%,100%{transform:none}70%{transform:scale(1.12) rotate(-6deg)}78%{transform:scale(1)}}
+@keyframes bxDraw{to{stroke-dashoffset:0}}
+@keyframes bxPin{from{opacity:0;transform:translateY(-14px)}to{opacity:1}}
+@keyframes bxStar{to{background:#F5B83D}}
+@keyframes bxFlow{to{stroke-dashoffset:-20}}
+@keyframes bxHub{50%{transform:translate(130px,75px) scale(1.06)}}
+@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.bx,.bx-call,.bx-req{grid-column:span 1}.bx-int{grid-column:1/-1}}
+@media (max-width:620px){.bento{grid-template-columns:1fr}.bx-int{grid-column:auto}.vz{height:170px}}
+@media (prefers-reduced-motion:reduce){.bx{opacity:1;transform:none;transition:none}.ring,.vz-chip,.rq,.rq-mail svg,.vz-int .links path,.vz-int .hub,.vz-call b svg{animation:none!important}.rq{opacity:1;transform:none}.vz-map .area{stroke-dashoffset:0}.vz-map .pins g{opacity:1}.stars i{background:#F5B83D}}
+
+/* ===== Premium v2: pricing, showcase, phases, about, contact ===== */
+.band{overflow:clip!important}
+.pay-toggle{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:999px;background:var(--surface);border:1px solid var(--line);margin:0 0 26px}
+.pay-toggle button{position:relative;z-index:1;border:0;background:none;font:700 .9rem var(--body);color:var(--muted);padding:10px 22px;border-radius:999px;cursor:pointer;transition:color .3s}
+.pay-toggle button.on{color:#fff}
+.pt-glide{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:linear-gradient(135deg,var(--navy),var(--blue));box-shadow:0 8px 20px -8px rgba(47,116,192,.7);transition:transform .45s cubic-bezier(.3,1.3,.5,1)}
+.pay-toggle.m .pt-glide{transform:translateX(100%)}
+.pr-grid{display:grid;grid-template-columns:1fr 1.12fr;gap:20px;align-items:stretch}
+.pr{position:relative;display:grid;grid-template-rows:auto auto 1fr auto auto;gap:18px;padding:30px;border-radius:20px;background:var(--surface);border:1px solid var(--line);transition:transform .4s cubic-bezier(.3,1.4,.5,1),box-shadow .4s,border-color .4s;isolation:isolate}
+.pr:hover{transform:translateY(-6px);box-shadow:0 34px 60px -36px rgba(10,61,122,.6);border-color:color-mix(in srgb,var(--blue) 45%,var(--line))}
+.pr-main{border:2px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,conic-gradient(from var(--beam),var(--line) 0deg,var(--line) 230deg,#8DB8E8 300deg,#2F74C0 330deg,var(--line) 360deg) border-box;animation:beam 5s linear infinite}
+.pr-main::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(80% 60% at 100% 0%,color-mix(in srgb,var(--blue) 14%,transparent),transparent 70%);z-index:-1;pointer-events:none}
+.pr-flag{position:absolute;top:-13px;right:26px;font:700 .72rem var(--body);color:#fff;background:linear-gradient(135deg,var(--navy),var(--blue));padding:6px 12px;border-radius:999px;box-shadow:0 8px 18px -8px rgba(47,116,192,.8)}
+.pr-top{display:flex;gap:16px;align-items:flex-start}
+.pr-top h3{font-size:1.35rem}.pr-top p{color:var(--muted);font-size:.95rem;margin-top:4px}
+.pr-ic{flex:none;width:48px;height:48px;border-radius:14px;background:var(--note-bg);display:grid;align-content:center;justify-items:start;gap:3px;padding:0 10px}
+.pr-ic i{display:block;height:5px;width:22px;border-radius:1px;background:var(--blue)}.pr-ic i:nth-child(2){margin-left:6px;background:var(--sky)}.pr-ic i:nth-child(3){background:var(--navy)}
+.pr-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.pr-price b{font:800 clamp(2.6rem,5vw,3.4rem)/1 var(--display);letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums;display:inline-block;transition:opacity .2s,transform .35s cubic-bezier(.3,1.5,.5,1)}
+.pr-price b.flip{opacity:0;transform:translateY(-10px)}
+.pr-price small{color:var(--muted);font-size:.88rem;max-width:26ch}
+.pr ul,.care-r,.needs ul{list-style:none;margin:0;padding:0}
+.pr ul{display:grid;gap:11px;align-content:start}
+.pr li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:.97rem;color:var(--ink)}
+.pr li svg{width:22px;height:22px;padding:4px;border-radius:50%;background:color-mix(in srgb,var(--blue) 16%,transparent);color:var(--blue);box-sizing:border-box}
+.pr-cta{display:flex;justify-content:center;align-items:center;min-height:50px;border-radius:12px;font:700 .98rem var(--body);text-decoration:none;color:var(--ink);border:1.5px solid var(--line);transition:background .25s,color .25s,border-color .25s,transform .2s}
+.pr-cta:hover{border-color:var(--ink);transform:translateY(-1px)}
+.pr-cta.solid{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-color:transparent;box-shadow:0 14px 28px -12px rgba(47,116,192,.75)}
+.pr-cta.solid:hover{filter:brightness(1.08)}
+.pr-fine{font-size:.86rem;color:var(--muted);text-align:center}
+.pr-link{border:0;background:none;color:var(--blue);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0}
+.care{margin-top:20px;display:grid;grid-template-columns:1fr 1.3fr;gap:28px;align-items:center;padding:28px 30px;border-radius:20px;background:linear-gradient(135deg,#071F42,#0D3D7A);border:1px solid rgba(141,184,232,.18);color:#fff;position:relative;overflow:hidden}
+.care::before{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(141,184,232,.35),transparent 70%);pointer-events:none}
+.care-k{font:700 .74rem var(--body);color:#8DB8E8}
+.care h3{font-size:1.5rem;color:#fff;margin-top:4px}.care-l p{color:#B4C3D6;margin-top:6px}
+.care-price{display:flex;align-items:baseline;gap:10px;margin-top:14px;flex-wrap:wrap}.care-price b{font:800 2.4rem/1 var(--display);color:#fff}.care-price small{color:#B4C3D6;font-size:.85rem}
+.care-r{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
+.care-r li{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:.9rem;color:#E7EDF5;transition:background .25s,transform .25s}
+.care-r li:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.care-r li span{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(141,184,232,.2);color:#BFD6F2;font-weight:700}
+.founding{margin-top:20px;display:flex;gap:20px;align-items:center;padding:20px 24px;border-radius:16px;border:1px dashed color-mix(in srgb,var(--blue) 60%,var(--line));background:color-mix(in srgb,var(--blue) 7%,transparent)}
+.founding b{font-size:1.02rem;color:var(--ink)}.founding p{color:var(--muted);font-size:.93rem;margin-top:4px}
+.fd-seats{display:flex;gap:6px;flex:none}.fd-seats i{width:16px;height:30px;border-radius:4px;background:linear-gradient(var(--blue),var(--navy))}
+.needs{margin-top:20px;display:grid;gap:12px}
+.needs b{font-size:.95rem;color:var(--ink)}
+.needs ul{display:flex;flex-wrap:wrap;gap:8px}
+.needs li{font-size:.88rem;color:var(--ink);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);transition:border-color .25s,transform .25s}
+.needs li:hover{border-color:var(--blue);transform:translateY(-2px)}
+@media (max-width:900px){.pr-grid,.care{grid-template-columns:1fr}}
+@media (max-width:560px){.care-r{grid-template-columns:1fr}.pr{padding:24px}.founding{flex-direction:column;align-items:flex-start}}
+/* showcase */
+.showcase{grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}.showcase .concept{display:flex;flex-direction:column}.showcase .concept-body{flex:1;display:flex;flex-direction:column}.showcase .cb-foot{margin-top:auto}
+
+.showcase .concept{border-radius:20px;border:1px solid var(--line);background:var(--surface);transition:transform .45s cubic-bezier(.3,1.4,.5,1),box-shadow .45s,border-color .45s}
+.showcase .concept:hover{transform:translateY(-8px);box-shadow:0 40px 70px -40px rgba(10,61,122,.65);border-color:color-mix(in srgb,var(--blue) 45%,var(--line))}
+.showcase .shot{margin:14px 14px 0;border-radius:12px;overflow:hidden;background:#0B1424;padding:8px 8px 0;border:1px solid rgba(141,184,232,.18)}
+.showcase .shot .frame{border-radius:6px 6px 0 0;overflow:hidden;aspect-ratio:16/10}
+
+.showcase .concept-body{padding:22px 24px 24px;gap:10px}
+.showcase .concept-body h3{font-size:1.3rem}
+.showcase .tag{font-family:var(--body);text-transform:none;letter-spacing:.01em;font-weight:700;color:var(--blue);border-color:color-mix(in srgb,var(--blue) 40%,var(--line));background:color-mix(in srgb,var(--blue) 8%,transparent);border-radius:999px;padding:4px 10px;align-self:flex-start}
+.cb-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;padding-top:14px;border-top:1px solid var(--line)}
+.pages{font:700 .8rem var(--body);color:var(--muted)}
+.showcase .view{display:inline-flex;align-items:center;gap:6px;font-weight:700;padding:9px 14px;border-radius:10px;background:var(--note-bg);color:var(--blue);text-decoration:none;transition:background .25s,color .25s}
+.showcase .view span{transition:transform .25s}
+.showcase .view:hover{background:var(--blue);color:#fff}.showcase .view:hover span{transform:translateX(4px)}
+@media (max-width:900px){.showcase{grid-template-columns:1fr}}
+/* phases v2 */
+.ph{grid-template-columns:1fr!important}
+.ph-c{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:8px;margin-top:6px;transition:transform .35s cubic-bezier(.3,1.4,.5,1),border-color .35s,box-shadow .35s}
+.ph.lit .ph-c{border-color:color-mix(in srgb,var(--blue) 40%,var(--line))}
+.ph:hover .ph-c{transform:translateY(-6px);box-shadow:0 26px 44px -30px rgba(10,61,122,.55)}
+.ph-c h3{margin:0!important;font-size:1.15rem}
+.ph .ph-n{box-shadow:0 0 0 6px var(--bg)}
+@media (max-width:860px){.ph{grid-template-columns:46px 1fr!important}.ph-c{grid-column:2;margin-top:0}.ph-n{grid-row:1!important}}
+/* about v2 */
+.about2{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
+.ab-copy{display:grid;gap:16px}.ab-copy p{color:var(--band-muted);font-size:1.05rem;max-width:56ch}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.pillars div{padding:16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:grid;gap:6px;transition:background .3s,transform .3s}
+.pillars div:hover{background:rgba(255,255,255,.09);transform:translateY(-3px)}
+.pillars b{color:#fff;font-size:.95rem}.pillars span{color:var(--band-muted);font-size:.85rem}
+.fcard2{position:relative;padding:30px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(141,184,232,.28);box-shadow:0 40px 80px -40px rgba(0,0,0,.6);display:grid;gap:6px;backdrop-filter:blur(6px);transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
+.fcard2:hover{transform:translateY(-6px) rotate(-.4deg)}
+.fc-mark{width:64px;height:64px;border-radius:18px;background:#0B1424;display:grid;align-content:center;gap:4px;padding:0 13px;margin-bottom:12px;border:1px solid rgba(141,184,232,.3)}
+.fc-mark i{display:block;height:7px;width:28px;border-radius:1px;background:#fff}.fc-mark i:nth-child(2){margin-left:8px;background:#7FA7CC}.fc-mark i:nth-child(3){background:#2F74C0}
+.fc-name{font:800 1.4rem var(--display);color:#fff}.fc-role{color:#8DB8E8;font-weight:700;font-size:.9rem}
+.fcard2 ul{list-style:none;padding:0;margin:16px 0 8px;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.14)}
+.fcard2 li{display:grid;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.fcard2 li span{font-size:.78rem;color:var(--band-muted)}.fcard2 li b{color:#fff;font-size:.95rem}
+.fc-cta{margin-top:10px;display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:46px;border-radius:12px;background:#fff;color:#1B2A41;font-weight:700;text-decoration:none;transition:background .25s}
+.fc-cta:hover{background:#8DB8E8}
+@media (max-width:900px){.about2{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}}
+/* contact v2 */
+.next{list-style:none;padding:0;margin:6px 0;display:grid;gap:10px;counter-reset:nx}
+.next li{counter-increment:nx;display:grid;grid-template-columns:34px 1fr;column-gap:12px;align-items:center}
+.next li::before{content:counter(nx);grid-row:span 2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font:800 .9rem var(--display)}
+.next b{font-size:.97rem;color:var(--ink)}.next span{font-size:.86rem;color:var(--muted)}
+.info-row{grid-template-columns:34px 1fr!important;column-gap:12px;align-items:center;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg)}
+.info-row i{grid-row:span 2;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--note-bg);color:var(--blue);font-style:normal}
+#review-form{border-radius:20px!important;padding:32px!important;box-shadow:0 40px 70px -46px rgba(10,61,122,.6);position:relative}
+#review-form::before{content:"";position:absolute;inset:0 0 auto;height:4px;border-radius:20px 20px 0 0;background:linear-gradient(90deg,var(--navy),var(--blue),var(--sky))}
+#review-form button[type=submit]{min-height:52px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-size:1rem}
 .sticky-cta{display:none}
 @media (max-width:480px){
   .sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
@@ -407,7 +591,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
-    <a class="btn btn-primary" href="#contact">Request a free review</a>
+    <a class="btn btn-primary" href="#contact">Get a free draft</a>
   </div>
 </header>
 
@@ -422,7 +606,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <h1><span class="w" style="--i:0">A</span> <span class="w" style="--i:1">website</span> <span class="w" style="--i:2">that</span> <span class="w" style="--i:3">helps</span> <span class="w" style="--i:4">customers</span> <span class="w" style="--i:5">call</span> <span class="w" style="--i:6">you,</span> <span class="w" style="--i:7">see</span> <span class="w" style="--i:8">your</span> <span class="w" style="--i:9">work,</span> <span class="w" style="--i:10">and</span> <em class="w" style="--i:11">ask for a quote.</em></h1>
         <p class="lead fade-in" style="--d:.55s">JOVILAP builds for you and with you. Our services offer simplicity, professionalism, and legitimacy.</p>
         <div class="hero-ctas fade-in" style="--d:.7s">
-          <a class="btn btn-primary" href="#contact">Request a free website review</a>
+          <a class="btn btn-primary" href="#contact">Get a free draft website</a>
           <a class="btn btn-ghost" href="#pricing">See pricing</a>
         </div>
         <div class="hero-meta fade-in" style="--d:.85s">
@@ -479,12 +663,50 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <h2>Built around how people hire a contractor</h2>
         <p class="lead">Most customers find you on their phone, check that you look legitimate, and want <span class="fx-mark">a fast way to reach you</span>. Every JOVILAP website is set up for that.</p>
       </div>
-      <div class="features">
-        <div class="feat spot"><h3>Tap-to-call button</h3><p>Your phone number is one tap away on every page, so customers can call from the job site or their driveway.</p></div>
-        <div class="feat spot"><h3>Customer requests</h3><p>Acquire all your customers' information regarding their request, and enjoy the ease of linking all of it to your business email.</p></div>
-        <div class="feat spot"><h3>Service descriptions and locations</h3><p>A clear list of what you do and the towns you cover, so customers know right away if you're a fit.</p></div>
-        <div class="feat spot"><h3>Certification recognition and reviews</h3><p>Allow your customers to see real reviews and active certifications that build trust between both parties.</p></div>
-        <div class="feat spot"><h3>Integration</h3><p>Connects your website with the tools you already use, like your business email and your Google Business Profile.</p></div>
+      <div class="bento" id="bento">
+        <article class="bx bx-call spot">
+          <div class="vz" aria-hidden="true">
+            <div class="vz-call"><span class="ring"></span><span class="ring r2"></span><span class="ring r3"></span><b><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call (561) 555-0100</b></div>
+            <span class="vz-chip c1">One tap</span><span class="vz-chip c2">Every page</span>
+          </div>
+          <div class="bx-t"><span class="bx-k">Get the call</span><h3>Tap-to-call button</h3><p>Your phone number is one tap away on every page, so customers can call from the job site or their driveway.</p></div>
+        </article>
+        <article class="bx bx-req spot">
+          <div class="vz" aria-hidden="true">
+            <div class="vz-req">
+              <div class="rq-list"><span class="rq"><i></i><b>Roof repair</b><em>Lake Worth Beach</em></span><span class="rq"><i></i><b>AC tune-up</b><em>Boynton Beach</em></span><span class="rq"><i></i><b>Panel upgrade</b><em>Miami</em></span></div>
+              <span class="rq-arrow"></span>
+              <span class="rq-mail"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><small>you@yourbusiness.com</small></span>
+            </div>
+          </div>
+          <div class="bx-t"><span class="bx-k">Capture every lead</span><h3>Customer requests</h3><p>Acquire all your customers' information regarding their request, and enjoy the ease of linking all of it to your business email.</p></div>
+        </article>
+        <article class="bx bx-map spot">
+          <div class="vz" aria-hidden="true">
+            <svg class="vz-map" viewBox="0 0 260 150"><path class="sea" d="M200 0H260V150H170C180 120 168 95 182 70C192 50 186 25 200 0Z"/><path class="area" d="M60 20C110 8 175 14 186 40C196 70 172 112 150 132C110 146 62 138 42 110C24 82 28 32 60 20Z"/><g class="pins"><g style="--i:0" transform="translate(150 34)"><path d="M0-14C-7-14-10-9-10-5C-10 2 0 10 0 10S10 2 10-5C10-9 7-14 0-14Z"/><circle cy="-5" r="3.2"/><text x="-14" y="-4" text-anchor="end">West Palm</text></g><g style="--i:1" transform="translate(140 64)"><path d="M0-14C-7-14-10-9-10-5C-10 2 0 10 0 10S10 2 10-5C10-9 7-14 0-14Z"/><circle cy="-5" r="3.2"/><text x="-14" y="-4" text-anchor="end">Lake Worth Beach</text></g><g style="--i:2" transform="translate(132 92)"><path d="M0-14C-7-14-10-9-10-5C-10 2 0 10 0 10S10 2 10-5C10-9 7-14 0-14Z"/><circle cy="-5" r="3.2"/><text x="-14" y="-4" text-anchor="end">Boynton Beach</text></g><g style="--i:3" transform="translate(116 124)"><path d="M0-14C-7-14-10-9-10-5C-10 2 0 10 0 10S10 2 10-5C10-9 7-14 0-14Z"/><circle cy="-5" r="3.2"/><text x="-14" y="-4" text-anchor="end">Miami</text></g></g></svg>
+          </div>
+          <div class="bx-t"><span class="bx-k">Show where you work</span><h3>Service descriptions and locations</h3><p>A clear list of what you do and the towns you cover, so customers know right away if you're a fit.</p></div>
+        </article>
+        <article class="bx bx-rev spot">
+          <div class="vz" aria-hidden="true">
+            <div class="vz-rev">
+              <div class="rv-score"><b>5.0</b><span class="stars"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i></span><small>Example rating</small></div>
+              <div class="rv-card"><q>On time, clean, fair price.</q><span class="rv-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 5 5 9-10"/></svg>Licensed &amp; insured</span></div>
+            </div>
+          </div>
+          <div class="bx-t"><span class="bx-k">Earn trust fast</span><h3>Certification recognition and reviews</h3><p>Allow your customers to see real reviews and active certifications that build trust between both parties.</p></div>
+        </article>
+        <article class="bx bx-int spot">
+          <div class="vz" aria-hidden="true">
+            <svg class="vz-int" viewBox="0 0 260 150"><g class="links"><path d="M130 75L44 30"/><path d="M130 75L216 30"/><path d="M130 75L44 122"/><path d="M130 75L216 122"/></g>
+              <g class="node n0" transform="translate(44 30)"><circle r="17"/><text y="4">Email</text></g>
+              <g class="node n1" transform="translate(216 30)"><circle r="17"/><text y="4">Google</text></g>
+              <g class="node n2" transform="translate(44 122)"><circle r="17"/><text y="4">Booking</text></g>
+              <g class="node n3" transform="translate(216 122)"><circle r="17"/><text y="4">Payments</text></g>
+              <g class="hub" transform="translate(130 75)"><rect x="-28" y="-28" width="56" height="56" rx="14"/><rect class="hb" x="-15" y="-14" width="24" height="7" rx="1.5"/><rect class="hb b2" x="-9" y="-3" width="24" height="7" rx="1.5"/><rect class="hb b3" x="-15" y="8" width="24" height="7" rx="1.5"/></g></svg>
+          </div>
+          <div class="bx-t"><span class="bx-k">Works with your tools</span><h3>Integration</h3><p>Connects your website with the tools you already use, like your business email and your Google Business Profile.</p></div>
+        </article>
       </div>
     </div>
   </section>
@@ -497,36 +719,44 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <h2>Clear prices, no gimmicks, no catch</h2>
         <p class="lead">Our company offers a free draft website. Once we send you our vision, <span class="fx-mark">you decide how to proceed</span>. If you believe we are a match, pricing goes as follows:</p>
       </div>
-      <div class="plans">
-        <article class="plan">
-          <h3>Landing page</h3>
-          <div class="price">$750 <small>one time</small></div>
-          <p>For new or small businesses that need a professional page fast.</p>
-          <ul><li>1 long page with all your key information</li><li>Tap-to-call and quote request form</li><li>Reviews and certifications section</li><li>Photo section for your work (optional)</li><li>1 round of changes before launch</li></ul>
-          <p class="fine">Can be upgraded to a full website later.</p>
+      <div class="pay-toggle" role="group" aria-label="Payment option">
+        <button type="button" class="on" data-pay="once" aria-pressed="true">Pay once</button>
+        <button type="button" data-pay="monthly" aria-pressed="false">Pay monthly</button>
+        <span class="pt-glide" aria-hidden="true"></span>
+      </div>
+      <div class="pr-grid">
+        <article class="pr">
+          <div class="pr-top"><span class="pr-ic" aria-hidden="true"><i></i></span><div><h3>Landing page</h3><p>For new or small businesses that need a professional page fast.</p></div></div>
+          <div class="pr-price"><b data-once="$750" data-monthly="$750">$750</b><small data-once="one time" data-monthly="one time · monthly not offered">one time</small></div>
+          <ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>1 long page with all your key information</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Tap-to-call and quote request form</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Reviews and certifications section</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Photo section for your work (optional)</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>1 round of changes before launch</span></li></ul>
+          <a class="pr-cta" href="#contact">Get a free draft</a>
+          <p class="pr-fine">Can be upgraded to a full website later.</p>
         </article>
-        <article class="plan main">
-          <h3>Contractor website</h3>
-          <div class="price">$1,500 <small>one time</small></div>
-          <p>For established contractors who want a complete website.</p>
-          <ul><li>Up to 5 pages: Home, Services, Projects, About, Contact</li><li>Reviews and certifications section</li><li>Project photo gallery (optional)</li><li>Quote request form and tap-to-call</li><li>2 rounds of changes before launch</li></ul>
-          <p class="fine">Monthly option: $250 down, then $209/month for 12 months, care plan included.</p>
-        </article>
-        <article class="plan">
-          <h3>Care plan</h3>
-          <div class="price">$99 <small>per month</small></div>
-          <p>Hosting, security and small edits, handled every month.</p>
-          <ul><li>Hosting and security certificate</li><li>Backups and uptime checks</li><li>Up to 30 minutes of small changes each month</li><li>Extra changes at $65 per hour</li></ul>
-          <p class="fine">6-month minimum, then month to month.</p>
+        <article class="pr pr-main">
+          <span class="pr-flag">Full website</span>
+          <div class="pr-top"><span class="pr-ic" aria-hidden="true"><i></i><i></i><i></i></span><div><h3>Contractor website</h3><p>For established contractors who want a complete website.</p></div></div>
+          <div class="pr-price"><b data-once="$1,500" data-monthly="$209">$1,500</b><small data-once="one time" data-monthly="per month · $250 down · 12 months · care plan included">one time</small></div>
+          <ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Up to 5 pages: Home, Services, Projects, About, Contact</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Reviews and certifications section</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Project photo gallery (optional)</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Quote request form and tap-to-call</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>2 rounds of changes before launch</span></li></ul>
+          <a class="pr-cta solid" href="#contact">Get a free draft</a>
+          <p class="pr-fine">Prefer smaller payments? Switch to <button type="button" class="pr-link" data-pay="monthly">Pay monthly</button>.</p>
         </article>
       </div>
-      <div class="note">
-        <b>Founding client rate</b>
-        <p>JOVILAP's first 3 clients get the full contractor website for $1,000. In return, they agree to let JOVILAP show their website as an example and to be asked for an honest review.</p>
+      <article class="care">
+        <div class="care-l"><span class="care-k">Add-on</span><h3>Care plan</h3><p>Hosting, security and small edits, handled every month.</p><div class="care-price"><b>$99</b><small>per month · 6-month minimum, then month to month</small></div></div>
+        <ul class="care-r">
+          <li><span aria-hidden="true">◎</span>Hosting and security certificate</li>
+          <li><span aria-hidden="true">↺</span>Backups and uptime checks</li>
+          <li><span aria-hidden="true">✎</span>Up to 30 minutes of small changes each month</li>
+          <li><span aria-hidden="true">+</span>Extra changes at $65 per hour</li>
+        </ul>
+      </article>
+      <div class="founding">
+        <div class="fd-seats" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div><b>Founding client rate: the full contractor website for $1,000</b><p>Available to 3 founding clients. In return, they agree to let JOVILAP show their website as an example and to be asked for an honest review.</p></div>
       </div>
-      <div class="note">
+      <div class="needs">
         <b>What you'll need to provide</b>
-        <p>Your logo (if you have one), any photos you have, your list of services, your license and certifications, and short answers to a questionnaire. Your domain name (your web address) is registered in your name, usually about $10–20 per year.</p>
+        <ul><li>Your logo, if you have one</li><li>Any photos you have</li><li>Your list of services</li><li>License and certifications (if applicable)</li><li>Short questionnaire answers</li><li>Your domain, registered in your name (about $10–20 a year)</li></ul>
       </div>
     </div>
   </section>
@@ -537,20 +767,20 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="label">Concept work</div>
         <h2>Sample websites</h2>
-        <p class="lead">JOVILAP is a new company, so these are concept projects for fictional businesses. One shows what the landing page package includes and two show the contractor website package. Photos are free stock images, and no client results are claimed.</p>
+        <p class="lead">See the design and build quality JOVILAP delivers. One sample shows the landing page package and two show the contractor website package. All three are concept projects for fictional businesses, made with free stock images.</p>
       </div>
-      <div class="concepts">
+      <div class="concepts showcase">
         <article class="concept spot">
-          <div class="shot"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame"><img src="shots/auto.jpg" alt="Homepage of the Sample Auto Repair landing page example" loading="lazy" width="1280" height="800"></div></div>
-          <div class="concept-body"><span class="tag">Landing page example</span><h3>Auto repair shop</h3><p>One long page: services, shop hours that highlight today, a reviews section, and a book-a-visit form.</p><a class="view" href="samples/auto/" target="_blank" rel="noopener">View sample website →</a></div>
+          <div class="shot"><div class="frame"><img src="shots/auto.jpg" alt="Homepage of the Sample Auto Repair landing page example" loading="lazy" width="1280" height="800"></div></div>
+          <div class="concept-body"><span class="tag">Landing page example</span><h3>Auto repair shop</h3><p>One long page: services, shop hours that highlight today, a reviews section, and a book-a-visit form.</p><div class="cb-foot"><span class="pages">1 page</span><a class="view" href="samples/auto/" target="_blank" rel="noopener">View live sample <span aria-hidden="true">→</span></a></div></div>
         </article>
         <article class="concept spot">
-          <div class="shot"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame"><img src="shots/lawn.jpg" alt="Homepage of the Sample Lawn and Landscape contractor website example" loading="lazy" width="1280" height="800"></div></div>
-          <div class="concept-body"><span class="tag">Contractor website example</span><h3>Lawn and landscaping company</h3><p>5 pages: Home, Services with a season-by-season guide, Projects gallery, About, and Contact with a request-a-visit form.</p><a class="view" href="samples/lawn/" target="_blank" rel="noopener">View sample website →</a></div>
+          <div class="shot"><div class="frame"><img src="shots/lawn.jpg" alt="Homepage of the Sample Lawn and Landscape contractor website example" loading="lazy" width="1280" height="800"></div></div>
+          <div class="concept-body"><span class="tag">Contractor website example</span><h3>Lawn and landscaping company</h3><p>5 pages: Home, Services with a season-by-season guide, Projects gallery, About, and Contact with a request-a-visit form.</p><div class="cb-foot"><span class="pages">5 pages</span><a class="view" href="samples/lawn/" target="_blank" rel="noopener">View live sample <span aria-hidden="true">→</span></a></div></div>
         </article>
         <article class="concept spot">
-          <div class="shot"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame"><img src="shots/construction.jpg" alt="Homepage of the Sample Construction Co. contractor website example" loading="lazy" width="1280" height="800"></div></div>
-          <div class="concept-body"><span class="tag">Contractor website example</span><h3>Patio, concrete and remodeling contractor</h3><p>5 pages: Home with a quick estimate form, Services, Projects, About with a service area map and FAQ, and Contact.</p><a class="view" href="samples/construction/" target="_blank" rel="noopener">View sample website →</a></div>
+          <div class="shot"><div class="frame"><img src="shots/construction.jpg" alt="Homepage of the Sample Construction Co. contractor website example" loading="lazy" width="1280" height="800"></div></div>
+          <div class="concept-body"><span class="tag">Contractor website example</span><h3>Patio, concrete and remodeling contractor</h3><p>5 pages: Home with a quick estimate form, Services, Projects, About with a service area map and FAQ, and Contact.</p><div class="cb-foot"><span class="pages">5 pages</span><a class="view" href="samples/construction/" target="_blank" rel="noopener">View live sample <span aria-hidden="true">→</span></a></div></div>
         </article>
       </div>
     </div>
@@ -562,30 +792,14 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="label">Process</div>
         <h2>From first call to launch</h2>
-        <p class="lead">Four phases, each with a clear handoff. <span class="fx-mark">The price is fixed in writing</span> before anything is built.</p>
+        <p class="lead">Four phases, each with a clear handoff. <span class="fx-mark">You see your draft first</span>, then decide.</p>
       </div>
       <div class="phases" id="phases">
         <div class="ph-line" aria-hidden="true"><i></i></div>
-        <div class="ph"><span class="ph-n">1</span><h3>Free review</h3><p>A short call or visit to see how customers find and reach your business today.</p></div>
-        <div class="ph"><span class="ph-n">2</span><h3>Written quote</h3><p>Pages, price and target date on paper. Work begins only after you approve it.</p></div>
-        <div class="ph"><span class="ph-n">3</span><h3>Build</h3><p>You send photos and details. JOVILAP builds the site and you ask for changes.</p></div>
-        <div class="ph"><span class="ph-n">4</span><h3>Go live</h3><p>After the final payment the site launches on your own web address. Monthly care is optional.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="about">
-    <div class="wrap about">
-      <div style="display:grid;gap:16px">
-        <div class="label">About JOVILAP</div>
-        <h2>A website company with roots in construction</h2>
-        <p>JOVILAP was started by [Founder name], who works in construction every day. He knows how contractors get hired and what homeowners check before they pick up the phone. Every project has one local contact in South Florida: him.</p>
-      </div>
-      <div class="facts">
-        <div><span>Founder &amp; Owner</span><b>[Founder name]</b></div>
-        <div><span>Based in</span><b>Lake Worth Beach and Miami, FL</b></div>
-        <div><span>Serves</span><b>Contractors and trade businesses</b></div>
-        <div><span>Language</span><b>English</b></div>
+        <div class="ph"><span class="ph-n">1</span><div class="ph-c"><h3>Free draft</h3><p>Tell us about your business and JOVILAP designs a free draft of your website.</p></div></div>
+        <div class="ph"><span class="ph-n">2</span><div class="ph-c"><h3>You decide</h3><p>Like the direction? Approve a written price and scope. If not, you owe nothing.</p></div></div>
+        <div class="ph"><span class="ph-n">3</span><div class="ph-c"><h3>Build</h3><p>You send photos and details. JOVILAP finishes the site and you ask for changes.</p></div></div>
+        <div class="ph"><span class="ph-n">4</span><div class="ph-c"><h3>Go live</h3><p>After the final payment the site launches on your own web address. Monthly care is optional.</p></div></div>
       </div>
     </div>
   </section>
@@ -598,7 +812,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <h2>Before you call</h2>
       </div>
       <div class="qa-grid">
-        <div class="qa"><h3>What does the free review include?</h3><p>A quick look at your current website or Google listing and how customers reach you now. There's no cost and no commitment.</p></div>
+        <div class="qa"><h3>What is the free draft?</h3><p>A first look at how your website could look, based on what you tell us about your business. There's no cost and no commitment.</p></div>
         <div class="qa"><h3>Whose name is the website under?</h3><p>Your business's. The web address is registered to you from day one, and the finished site is yours after the final payment.</p></div>
         <div class="qa"><h3>How soon can it launch?</h3><p>That mostly depends on how quickly your photos and details come in. Your written quote includes a target launch date.</p></div>
         <div class="qa"><h3>Is the $99 care plan required?</h3><p>No. It covers hosting, backups and small edits each month. Without it, you arrange hosting and changes yourself.</p></div>
@@ -613,12 +827,13 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
     <div class="wrap contact">
       <div class="contact-info">
         <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="label">Free website review</div>
+        <div class="label">Free draft website</div>
         <h2>Tell JOVILAP about your business</h2>
-        <p class="lead">Send a few details and [Founder name] will follow up to set up your free 20–30 minute website review.</p>
-        <div class="info-row"><span>Email</span><b>[Business email]</b></div>
-        <div class="info-row"><span>Phone</span><b>[Business phone]</b></div>
-        <div class="info-row"><span>Service area</span><b>Palm Beach and Miami-Dade counties, Florida</b></div>
+        <p class="lead">Send a few details and [Founder name] will follow up to plan your free draft. No cost and no commitment.</p>
+        <ol class="next"><li><b>You send details</b><span>Takes about a minute.</span></li><li><b>We talk</b><span>A short call about your business.</span></li><li><b>You get a draft</b><span>See your website before you pay anything.</span></li></ol>
+        <div class="info-row"><i aria-hidden="true">✉</i><span>Email</span><b>[Business email]</b></div>
+        <div class="info-row"><i aria-hidden="true">☏</i><span>Phone</span><b>[Business phone]</b></div>
+        <div class="info-row"><i aria-hidden="true">⌖</i><span>Service area</span><b>Palm Beach and Miami-Dade counties, Florida</b></div>
       </div>
       <form id="review-form" novalidate>
         <div class="two">
@@ -638,7 +853,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
         <div class="field"><label for="f-site">Current website <span class="opt">(optional)</span></label><input id="f-site" name="website" inputmode="url" placeholder="yourcompany.com"></div>
         <div class="field"><label for="f-msg">Anything else? <span class="opt">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
         <div class="hp" aria-hidden="true"><label for="f-hp">Leave this empty</label><input id="f-hp" name="company_site" tabindex="-1" autocomplete="off"></div>
-        <button class="btn btn-primary" type="submit">Request my free review</button>
+        <button class="btn btn-primary" type="submit">Request my free draft</button>
         <div id="form-msg" class="form-msg ok" role="status" hidden></div>
       </form>
     </div>
@@ -656,7 +871,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
   </div>
 </footer>
 
-<div class="sticky-cta"><a class="btn btn-primary" href="#contact">Request a free website review</a></div>
+<div class="sticky-cta"><a class="btn btn-primary" href="#contact">Get a free draft website</a></div>
 
 <script>
 (function(){var l=document.getElementById('loader');if(!l)return;l.addEventListener('animationend',function(e){if(e.animationName==='ldOut')l.remove()});setTimeout(function(){if(l.isConnected)l.remove()},3000)})();
@@ -754,6 +969,18 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
     items.forEach(function(it,i){it.classList.toggle('lit',p>=(i/(items.length-1))*0.98||p>=1)})}
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){ph.style.setProperty('--pf','100%');items.forEach(function(i){i.classList.add('lit')});return}
   addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up)}},{passive:true});addEventListener('resize',up);up();
+})();
+</script>
+<script>
+(function(){var b=document.getElementById('bento');if(!b)return;if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){b.classList.add('in');return}
+new IntersectionObserver(function(es,o){if(es[0].isIntersecting){b.classList.add('in');o.disconnect()}},{rootMargin:'0px 0px -10% 0px'}).observe(b)})();
+</script>
+<script>
+(function(){
+  var t=document.querySelector('.pay-toggle');if(!t)return;var bs=[].slice.call(document.querySelectorAll('[data-pay]'));
+  function set(m){t.classList.toggle('m',m==='monthly');[].slice.call(t.querySelectorAll('button')).forEach(function(b){var on=b.dataset.pay===m;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on))});
+    [].slice.call(document.querySelectorAll('.pr-price b,.pr-price small')).forEach(function(el){var v=el.getAttribute('data-'+m);if(el.tagName==='B'){el.classList.add('flip');setTimeout(function(){el.textContent=v;el.classList.remove('flip')},180)}else el.textContent=v})}
+  bs.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.pay)})});
 })();
 </script>
 </body>
