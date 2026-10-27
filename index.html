@@ -91,11 +91,12 @@ section{padding-block:clamp(56px,8vw,96px)}
 .scr-gallery i{aspect-ratio:1;border-radius:3px;background:#8DB8E8}
 .scr-gallery i:nth-child(2){background:#2F74C0}.scr-gallery i:nth-child(3){background:#C9D9EC}
 .phone-cap{text-align:center;font-size:.8rem;color:var(--muted);margin-top:12px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.feat{background:var(--surface);padding:26px;display:grid;gap:8px;align-content:start}
+.features{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.feat{grid-column:span 2;background:var(--surface);padding:26px;display:grid;gap:8px;align-content:start}
 .feat p{color:var(--muted);font-size:.97rem}
-@media (max-width:860px){.features{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.features{grid-template-columns:1fr}}
+.feat:nth-child(n+4){grid-column:span 3}
+@media (max-width:860px){.features{grid-template-columns:1fr 1fr}.feat,.feat:nth-child(n+4){grid-column:span 1}.feat:last-child{grid-column:1/-1}}
+@media (max-width:560px){.features{grid-template-columns:1fr}.feat:last-child{grid-column:auto}}
 .alt{background:var(--surface);border-block:1px solid var(--line)}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 @media (max-width:900px){.plans{grid-template-columns:1fr}}
@@ -419,7 +420,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       <div class="hero-copy">
         <span class="pill-tag fade-in" style="--d:0s"><span class="dot" aria-hidden="true"></span>Websites for contractors</span>
         <h1><span class="w" style="--i:0">A</span> <span class="w" style="--i:1">website</span> <span class="w" style="--i:2">that</span> <span class="w" style="--i:3">helps</span> <span class="w" style="--i:4">customers</span> <span class="w" style="--i:5">call</span> <span class="w" style="--i:6">you,</span> <span class="w" style="--i:7">see</span> <span class="w" style="--i:8">your</span> <span class="w" style="--i:9">work,</span> <span class="w" style="--i:10">and</span> <em class="w" style="--i:11">ask for a quote.</em></h1>
-        <p class="lead fade-in" style="--d:.55s">JOVILAP builds clear, mobile-friendly websites for roofers, plumbers, HVAC, electricians, landscapers, and other trades. The founder works in construction, so your website is planned by someone who knows how your customers hire.</p>
+        <p class="lead fade-in" style="--d:.55s">JOVILAP builds for you and with you. Our services offer simplicity, professionalism, and legitimacy.</p>
         <div class="hero-ctas fade-in" style="--d:.7s">
           <a class="btn btn-primary" href="#contact">Request a free website review</a>
           <a class="btn btn-ghost" href="#pricing">See pricing</a>
@@ -480,11 +481,10 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       </div>
       <div class="features">
         <div class="feat spot"><h3>Tap-to-call button</h3><p>Your phone number is one tap away on every page, so customers can call from the job site or their driveway.</p></div>
-        <div class="feat spot"><h3>Quote request form</h3><p>Customers send their name, contact details, and what they need. The request goes to your email.</p></div>
-        <div class="feat spot"><h3>Project photo gallery</h3><p>Show real jobs you've finished. Photos of your own work build more trust than stock images.</p></div>
-        <div class="feat spot"><h3>Services and service area</h3><p>A clear list of what you do and the towns you cover, so customers know right away if you're a fit.</p></div>
-        <div class="feat spot"><h3>License and insurance details</h3><p>Show your license number and insurance status where customers can see them before they call.</p></div>
-        <div class="feat spot"><h3>Works on any phone</h3><p>Designed for small screens first, then checked on tablets and computers before launch.</p></div>
+        <div class="feat spot"><h3>Customer requests</h3><p>Acquire all your customers' information regarding their request, and enjoy the ease of linking all of it to your business email.</p></div>
+        <div class="feat spot"><h3>Service descriptions and locations</h3><p>A clear list of what you do and the towns you cover, so customers know right away if you're a fit.</p></div>
+        <div class="feat spot"><h3>Certification recognition and reviews</h3><p>Allow your customers to see real reviews and active certifications that build trust between both parties.</p></div>
+        <div class="feat spot"><h3>Integration</h3><p>Connects your website with the tools you already use, like your business email and your Google Business Profile.</p></div>
       </div>
     </div>
   </section>
@@ -494,7 +494,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       <div class="sec-head">
         <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="label">Pricing</div>
-        <h2>Clear prices, agreed before any work starts</h2>
+        <h2>Clear prices, no gimmicks, no catch</h2>
         <p class="lead">You get a written price and scope after your free website review. Payment is <span class="fx-mark">half to start</span> and half before your site goes live, or in 3 payments.</p>
       </div>
       <div class="plans">
@@ -502,14 +502,14 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
           <h3>Landing page</h3>
           <div class="price">$750 <small>one time</small></div>
           <p>For new or small businesses that need a professional page fast.</p>
-          <ul><li>1 long page with all your key information</li><li>Tap-to-call and quote request form</li><li>Photo section for your work</li><li>1 round of changes before launch</li></ul>
+          <ul><li>1 long page with all your key information</li><li>Tap-to-call and quote request form</li><li>Reviews and certifications section</li><li>1 round of changes before launch</li></ul>
           <p class="fine">Can be upgraded to a full website later.</p>
         </article>
         <article class="plan main">
           <h3>Contractor website</h3>
           <div class="price">$1,500 <small>one time</small></div>
           <p>For established contractors who want a complete website.</p>
-          <ul><li>Up to 5 pages: Home, Services, Projects, About, Contact</li><li>Full project photo gallery</li><li>Quote request form and tap-to-call</li><li>2 rounds of changes before launch</li></ul>
+          <ul><li>Up to 5 pages: Home, Services, Projects, About, Contact</li><li>Reviews and certifications section</li><li>Quote request form and tap-to-call</li><li>2 rounds of changes before launch</li></ul>
           <p class="fine">Monthly option: $250 down, then $209/month for 12 months, care plan included.</p>
         </article>
         <article class="plan">
@@ -526,7 +526,7 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 5px rgba(141,184,232,.3
       </div>
       <div class="note">
         <b>What you'll need to provide</b>
-        <p>Your logo (if you have one), photos of your work, your list of services, your license number, and short answers to a questionnaire. Your domain name (your web address) is registered in your name, usually about $10–20 per year.</p>
+        <p>Your logo (if you have one), any photos you have, your list of services, your license and certifications, and short answers to a questionnaire. Your domain name (your web address) is registered in your name, usually about $10–20 per year.</p>
       </div>
     </div>
   </section>
