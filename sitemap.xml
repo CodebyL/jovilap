@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace YOUR-DOMAIN with JOVILAP's domain before turning off noindex -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://YOUR-DOMAIN/</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://YOUR-DOMAIN/samples/auto/</loc></url>
+  <url><loc>https://YOUR-DOMAIN/samples/lawn/</loc></url>
+  <url><loc>https://YOUR-DOMAIN/samples/construction/</loc></url>
+</urlset>
